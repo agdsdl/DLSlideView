@@ -1,0 +1,212 @@
+//
+//  DLFixedTabbarView.m
+//  DLSlideController
+//
+//  Created by Dongle Su on 14-12-8.
+//  Copyright (c) 2014年 dongle. All rights reserved.
+//
+
+#import "DLImagedTabbarView.h"
+
+#define kTrackViewHeight 2
+
+#define kLabelTagBase 1000
+#define kImageTagBase 2000
+#define kSelectedImageTagBase 3000
+
+@implementation DLImagedTabbarItem
+@end
+
+@implementation DLImagedTabbarView{
+    UIScrollView *scrollView_;
+    UIImageView *backgroudView_;
+    UIImageView *trackView_;
+}
+- (UIColor *)getColorOfPercent:(CGFloat)percent between:(UIColor *)color1 and:(UIColor *)color2{
+    CGFloat red1, green1, blue1, alpha1;
+    [color1 getRed:&red1 green:&green1 blue:&blue1 alpha:&alpha1];
+    
+    CGFloat red2, green2, blue2, alpha2;
+    [color2 getRed:&red2 green:&green2 blue:&blue2 alpha:&alpha2];
+    
+    CGFloat p1 = percent;
+    CGFloat p2 = 1.0 - percent;
+    UIColor *mid = [UIColor colorWithRed:red1*p1+red2*p2 green:green1*p1+green2*p2 blue:blue1*p1+blue2*p2 alpha:1.0f];
+    return mid;
+}
+
+- (void)commonInit{
+    _selectedIndex = -1;
+    
+    backgroudView_ = [[UIImageView alloc] initWithFrame:self.bounds];
+    [self addSubview:backgroudView_];
+    
+    scrollView_ = [[UIScrollView alloc] initWithFrame:self.bounds];
+    [self addSubview:scrollView_];
+    
+    trackView_ = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-kTrackViewHeight, self.bounds.size.width, kTrackViewHeight)];
+    [self addSubview:trackView_];
+
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+    [scrollView_ addGestureRecognizer:tap];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder{
+    if (self = [super initWithCoder:aDecoder]) {
+        [self commonInit];
+    }
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame{
+    if (self = [super initWithFrame:frame]) {
+        [self commonInit];
+    }
+    return self;
+}
+
+- (void)setBackgroundImage:(UIImage *)backgroundImage{
+    backgroudView_.image = backgroundImage;
+}
+
+- (void)setTrackColor:(UIColor *)trackColor{
+    trackView_.backgroundColor = trackColor;
+}
+
+- (void)setTabbarItems:(NSArray *)tabbarItems{
+    if (_tabbarItems != tabbarItems) {
+        _tabbarItems = tabbarItems;
+        
+        assert(tabbarItems.count <= 4);
+        
+        float width = self.bounds.size.width/tabbarItems.count;
+        float height = self.bounds.size.height;
+        float x = 0.0f;
+        int i=0;
+        for (DLImagedTabbarItem *item in tabbarItems) {
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(x, 0, width, height)];
+            label.text = item.title;
+            label.textColor = item.titleColor;
+            [label sizeToFit];
+            label.tag = kLabelTagBase+i;
+            
+            UIImageView *imageView = [[UIImageView alloc] initWithImage:item.image];
+            [imageView sizeToFit];
+            imageView.tag = kImageTagBase+i;
+            
+            UIImageView *selectedImageView = [[UIImageView alloc] initWithImage:item.selectedImage];
+            [selectedImageView sizeToFit];
+            selectedImageView.alpha = 0.0f;
+            selectedImageView.tag = kSelectedImageTagBase+i;
+
+            [scrollView_ addSubview:label];
+            [scrollView_ addSubview:imageView];
+            [scrollView_ addSubview:selectedImageView];
+            i++;
+        }
+        
+        [self layoutTabbar];
+    }
+}
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    
+    scrollView_.frame = self.bounds;
+    [self layoutTabbar];
+}
+
+- (void)layoutTabbar{
+    float width = self.bounds.size.width/self.tabbarItems.count;
+    float height = self.bounds.size.height;
+    float x = 0.0f;
+    for (int i=0; i<self.tabbarItems.count; i++) {
+        x = i*width;
+        UILabel *label = (UILabel *)[scrollView_ viewWithTag:kLabelTagBase+i];
+        UIImageView *imageView = (UIImageView *)[scrollView_ viewWithTag:kImageTagBase+i];
+        UIImageView *selectedIamgeView = (UIImageView *)[scrollView_ viewWithTag:kSelectedImageTagBase+i];
+        label.frame = CGRectMake(x + (width-label.bounds.size.width)/2.0f, (height-label.bounds.size.height)/2.0f, CGRectGetWidth(label.bounds), CGRectGetHeight(label.bounds));
+        imageView.frame = CGRectMake(label.frame.origin.x + label.bounds.size.width+5, (height-imageView.bounds.size.height)/2.0, CGRectGetWidth(imageView.bounds), CGRectGetHeight(imageView.bounds));
+        selectedIamgeView.frame = imageView.frame;
+    }
+    
+    float trackX = width*self.selectedIndex;
+    trackView_.frame = CGRectMake(trackX, trackView_.frame.origin.y, width, kTrackViewHeight);
+}
+
+- (int)tabbarCount{
+    return (int)self.tabbarItems.count;
+}
+
+- (void)switchingFrom:(int)fromIndex to:(int)toIndex percent:(float)percent{
+    DLImagedTabbarItem *fromItem = [self.tabbarItems objectAtIndex:fromIndex];
+    UILabel *fromLabel = (UILabel *)[scrollView_ viewWithTag:kLabelTagBase+fromIndex];
+    UIImageView *fromIamge = (UIImageView *)[scrollView_ viewWithTag:kImageTagBase+fromIndex];
+    UIImageView *fromSelectedIamge = (UIImageView *)[scrollView_ viewWithTag:kSelectedImageTagBase+fromIndex];
+    fromLabel.textColor = [self getColorOfPercent:percent between:fromItem.titleColor and:fromItem.selectedTitleColor];
+    fromIamge.alpha = percent;
+    fromSelectedIamge.alpha = (1-percent);
+
+    if (toIndex >= 0 && toIndex < [self tabbarCount]) {
+        DLImagedTabbarItem *toItem = [self.tabbarItems objectAtIndex:toIndex];
+        UILabel *toLabel = (UILabel *)[scrollView_ viewWithTag:kLabelTagBase+toIndex];
+        UIImageView *toIamge = (UIImageView *)[scrollView_ viewWithTag:kImageTagBase+toIndex];
+        UIImageView *toSelectedIamge = (UIImageView *)[scrollView_ viewWithTag:kSelectedImageTagBase+toIndex];
+        toLabel.textColor = [self getColorOfPercent:percent between:toItem.selectedTitleColor and:toItem.titleColor];
+        toIamge.alpha = (1-percent);
+        toSelectedIamge.alpha = percent;
+    }
+    
+    float width = self.bounds.size.width/self.tabbarItems.count;
+    float trackX;
+    if (toIndex > fromIndex) {
+        trackX = width*fromIndex + width*percent;
+    }
+    else{
+        trackX = width*fromIndex - width*percent;
+    }
+
+    trackView_.frame = CGRectMake(trackX, trackView_.frame.origin.y, CGRectGetWidth(trackView_.bounds), CGRectGetHeight(trackView_.bounds));
+}
+
+- (void)setSelectedIndex:(int)selectedIndex{
+    if (_selectedIndex != selectedIndex) {
+        if (_selectedIndex >= 0) {
+            DLImagedTabbarItem *fromItem = [self.tabbarItems objectAtIndex:_selectedIndex];
+            UILabel *fromLabel = (UILabel *)[scrollView_ viewWithTag:kLabelTagBase+_selectedIndex];
+            UIImageView *fromIamge = (UIImageView *)[scrollView_ viewWithTag:kImageTagBase+_selectedIndex];
+            UIImageView *fromSelectedIamge = (UIImageView *)[scrollView_ viewWithTag:kSelectedImageTagBase+_selectedIndex];
+            fromLabel.textColor = fromItem.titleColor;
+            fromIamge.alpha = 1.0f;
+            fromSelectedIamge.alpha = 0.0f;
+        }
+        
+        if (selectedIndex >= 0 && selectedIndex < [self tabbarCount]) {
+            DLImagedTabbarItem *toItem = [self.tabbarItems objectAtIndex:selectedIndex];
+            UILabel *toLabel = (UILabel *)[scrollView_ viewWithTag:kLabelTagBase+selectedIndex];
+            UIImageView *toIamge = (UIImageView *)[scrollView_ viewWithTag:kImageTagBase+selectedIndex];
+            UIImageView *toSelectedIamge = (UIImageView *)[scrollView_ viewWithTag:kSelectedImageTagBase+selectedIndex];
+            toLabel.textColor = toItem.selectedTitleColor;
+            toIamge.alpha = 0.0f;
+            toSelectedIamge.alpha = 1.0f;
+        }
+        
+        float width = self.bounds.size.width/self.tabbarItems.count;
+        float trackX = width*selectedIndex;
+        trackView_.frame = CGRectMake(trackX, trackView_.frame.origin.y, CGRectGetWidth(trackView_.bounds), CGRectGetHeight(trackView_.bounds));
+
+        _selectedIndex = selectedIndex;
+    }
+}
+
+- (void)tapAction:(UITapGestureRecognizer *)tap{
+    float width = self.bounds.size.width/self.tabbarItems.count;
+
+    CGPoint point = [tap locationInView:scrollView_];
+    int i = point.x/width;
+    self.selectedIndex = i;
+    if (self.delegate) {
+        [self.delegate DLSlideTabbar:self selectAt:i];
+    }
+}
+@end
