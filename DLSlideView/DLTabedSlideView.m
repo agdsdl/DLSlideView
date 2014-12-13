@@ -7,20 +7,51 @@
 //
 
 #import "DLTabedSlideView.h"
+#import "DLImagedTabbarView.h"
 #import "DLSlideView.h"
+#import "DLFIFOCache.h"
 
-@interface DLTabedSlideView()<DLSlideViewDelegate>
+#define kDefaultTabbarHeight 34
+#define kDefaultTabbarBottomSpacing 0
+#define kDefaultCacheCount 4
+
+@implementation DLTabedbarItem
++ (DLTabedbarItem *)itemWithTitle:(NSString *)title image:(UIImage *)image selectedImage:(UIImage *)selectedImage{
+    DLTabedbarItem *item = [[DLTabedbarItem alloc] init];
+    item.title = title;
+    item.image = image;
+    item.selectedImage = selectedImage;
+    
+    return item;
+}
 
 @end
 
+@interface DLTabedSlideView()<DLSlideViewDelegate, DLSlideViewDataSource>
+
+@end
+
+
 @implementation DLTabedSlideView{
     DLSlideView *slideView_;
+    DLImagedTabbarView *tabbar_;
+    DLFIFOCache *ctrlCache_;
 }
 
 - (void)commonInit{
-    slideView_ = [[DLSlideView alloc] initWithFrame:CGRectZero];
+    self.tabbarHeight = kDefaultTabbarHeight;
+    self.tabbarBottomSpacing = kDefaultTabbarBottomSpacing;
+    
+    tabbar_ = [[DLImagedTabbarView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.tabbarHeight)];
+    tabbar_.delegate = self;
+    [self addSubview:tabbar_];
+    
+    slideView_ = [[DLSlideView alloc] initWithFrame:CGRectMake(0, self.tabbarHeight+self.tabbarBottomSpacing, self.bounds.size.width, self.bounds.size.height-self.tabbarHeight-self.tabbarBottomSpacing)];
     slideView_.delegate = self;
+    slideView_.dataSource = self;
     [self addSubview:slideView_];
+    
+    ctrlCache_ = [[DLFIFOCache alloc] initWithCount:4];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder{
@@ -43,53 +74,87 @@
 }
 
 - (void)layoutBarAndSlide{
-//    UIView *barView = (UIView *)_tabarView;
-//    barView.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(barView.bounds));
-    slideView_.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
+    UIView *barView = (UIView *)tabbar_;
+    barView.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), self.tabbarHeight);
+    slideView_.frame = CGRectMake(0, self.tabbarHeight+self.tabbarBottomSpacing, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)-self.tabbarHeight-self.tabbarBottomSpacing);
 
 }
-- (void)setViewControllers:(NSArray *)viewControllers{
-    //assert(self.tabarView == nil || viewControllers.count == [self.tabarView tabbarCount]);
-
-    slideView_.viewControllers = viewControllers;
-}
+//- (void)setViewControllers:(NSArray *)viewControllers{
+//    //assert(self.tabarView == nil || viewControllers.count == [self.tabarView tabbarCount]);
+//
+//    slideView_.viewControllers = viewControllers;
+//}
 
 - (void)setBaseViewController:(UIViewController *)baseViewController{
     slideView_.baseViewController = baseViewController;
 }
 
-- (void)setTabarView:(id<DLSlideTabbarProtocol>)tabarView{
-    assert([tabarView isKindOfClass:[UIView class]]);
-    assert(slideView_.viewControllers == nil || slideView_.viewControllers.count == [tabarView tabbarCount]);
-    
-    if (_tabarView != tabarView) {
-        _tabarView.delegate = nil;
-        _tabarView = tabarView;
+- (void)buildTabbar{
+    NSMutableArray *tabbarItems = [NSMutableArray array];
+    for (DLTabedbarItem *item in self.tabbarItems) {
+        DLImagedTabbarItem *barItem = [[DLImagedTabbarItem alloc] init];
+        barItem.title = item.title;
+        barItem.titleColor = self.tabItemNormalColor;
+        barItem.selectedTitleColor = self.tabItemSelectedColor;
+        barItem.image = item.image;
+        barItem.selectedImage = item.selectedImage;
         
-        tabarView.delegate = self;
-        [self layoutBarAndSlide];
-
+        [tabbarItems addObject:barItem];
     }
+    
+    tabbar_.tabbarItems = tabbarItems;
+    tabbar_.trackColor = self.tabbarTrackColor;
+    tabbar_.backgroundImage = self.tabbarBackgroundImage;
+
 }
+//- (void)setTabarView:(id<DLSlideTabbarProtocol>)tabarView{
+//    assert([tabarView isKindOfClass:[UIView class]]);
+//    assert(slideView_.viewControllers == nil || slideView_.viewControllers.count == [tabarView tabbarCount]);
+//    
+//    if (_tabarView != tabarView) {
+//        _tabarView.delegate = nil;
+//        _tabarView = tabarView;
+//        
+//        tabarView.delegate = self;
+//        [self layoutBarAndSlide];
+//
+//    }
+//}
 
 - (void)setSelectedIndex:(int)selectedIndex{
     _selectedIndex = selectedIndex;
     [slideView_ setSelectedIndex:selectedIndex];
-    [self.tabarView setSelectedIndex:selectedIndex];
+    [tabbar_ setSelectedIndex:selectedIndex];
 }
 
 - (void)DLSlideTabbar:(id)sender selectAt:(int)index{
     [slideView_ setSelectedIndex:index];
 }
 
+- (int)numberOfControllersInDLSlideView:(DLSlideView *)sender{
+    return [self.delegate numberOfTabsInDLTabedSlideView:self];
+}
+
+- (UIViewController *)DLSlideView:(DLSlideView *)sender controllerAt:(int)index{
+    NSString *key = [NSString stringWithFormat:@"%d", index];
+    if ([ctrlCache_ objectForKey:key]) {
+        return [ctrlCache_ objectForKey:key];
+    }
+    else{
+        UIViewController *ctrl = [self.delegate DLTabedSlideView:self controllerAt:index];
+        [ctrlCache_ setObject:ctrl forKey:key];
+        return ctrl;
+    }
+}
+
 - (void)DLSlideView:(DLSlideView *)slide switchingFrom:(int)oldIndex to:(int)toIndex percent:(float)percent{
-    [self.tabarView switchingFrom:oldIndex to:toIndex percent:percent];
+    [tabbar_ switchingFrom:oldIndex to:toIndex percent:percent];
 }
 - (void)DLSlideView:(DLSlideView *)slide didSwitchTo:(int)index{
-    [self.tabarView setSelectedIndex:index];
+    [tabbar_ setSelectedIndex:index];
 }
 - (void)DLSlideView:(DLSlideView *)slide switchCanceled:(int)oldIndex{
-    [self.tabarView setSelectedIndex:oldIndex];
+    [tabbar_ setSelectedIndex:oldIndex];
 }
 
 

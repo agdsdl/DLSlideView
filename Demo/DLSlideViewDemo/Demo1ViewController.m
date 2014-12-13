@@ -22,36 +22,43 @@
     [super viewDidLoad];
 
     // Do any additional setup after loading the view from its nib.
-    OneViewController *ctrl1 = [[OneViewController alloc] init];
-    TwoViewController *ctrl2 = [[TwoViewController alloc] init];
-    ThreeViewController *ctrl3 = [[ThreeViewController alloc] init];
-    self.tabedSlideView.viewControllers = @[ctrl1, ctrl2, ctrl3];
+//    self.tabedSlideView.viewControllers = @[ctrl1, ctrl2, ctrl3];
     self.tabedSlideView.baseViewController = self;
+    self.tabedSlideView.tabItemNormalColor = [UIColor blackColor];
+    self.tabedSlideView.tabItemSelectedColor = [UIColor colorWithRed:0.833 green:0.052 blue:0.130 alpha:1.000];
+    self.tabedSlideView.tabbarTrackColor = [UIColor colorWithRed:0.833 green:0.052 blue:0.130 alpha:1.000];
+    self.tabedSlideView.tabbarBackgroundImage = [UIImage imageNamed:@"tabbarBk"];
+    self.tabedSlideView.tabbarBottomSpacing = 3.0;
     
-    DLImagedTabbarItem *barItem1 = [[DLImagedTabbarItem alloc] init];
-    barItem1.title = @"最新";
-    barItem1.titleColor = [UIColor blackColor];
-    barItem1.selectedTitleColor = [UIColor colorWithRed:0.833 green:0.052 blue:0.130 alpha:1.000];
-    barItem1.image = [UIImage imageNamed:@"goodsNew"];
-    barItem1.selectedImage = [UIImage imageNamed:@"goodsNew_d"];
-    
-    DLImagedTabbarItem *barItem2 = [[DLImagedTabbarItem alloc] init];
-    barItem2.title = @"最热";
-    barItem2.titleColor = [UIColor blackColor];
-    barItem2.selectedTitleColor = [UIColor colorWithRed:0.833 green:0.052 blue:0.130 alpha:1.000];
-    barItem2.image = [UIImage imageNamed:@"goodsHot"];
-    barItem2.selectedImage = [UIImage imageNamed:@"goodsHot_d"];
-    
-    DLImagedTabbarItem *barItem3 = [[DLImagedTabbarItem alloc] init];
-    barItem3.title = @"价格";
-    barItem3.titleColor = [UIColor blackColor];
-    barItem3.selectedTitleColor = [UIColor colorWithRed:0.833 green:0.052 blue:0.130 alpha:1.000];
-    barItem3.image = [UIImage imageNamed:@"goodsPrice"];
-    barItem3.selectedImage = [UIImage imageNamed:@"goodsPrice_d"];
-    
-    DLImagedTabbarView *tabbarView = (DLImagedTabbarView *)self.tabedSlideView.tabarView;
-    tabbarView.tabbarItems = @[barItem1, barItem2, barItem3];
-    tabbarView.trackColor = [UIColor colorWithRed:0.833 green:0.052 blue:0.130 alpha:1.000];
+    DLTabedbarItem *item1 = [DLTabedbarItem itemWithTitle:@"最新" image:[UIImage imageNamed:@"goodsNew"] selectedImage:[UIImage imageNamed:@"goodsNew_d"]];
+    DLTabedbarItem *item2 = [DLTabedbarItem itemWithTitle:@"最热" image:[UIImage imageNamed:@"goodsHot"] selectedImage:[UIImage imageNamed:@"goodsHot_d"]];
+    DLTabedbarItem *item3 = [DLTabedbarItem itemWithTitle:@"价格" image:[UIImage imageNamed:@"goodsPrice"] selectedImage:[UIImage imageNamed:@"goodsPrice_d"]];
+    self.tabedSlideView.tabbarItems = @[item1, item2, item3];
+    [self.tabedSlideView buildTabbar];
+//    DLImagedTabbarItem *barItem1 = [[DLImagedTabbarItem alloc] init];
+//    barItem1.title = @"最新";
+//    barItem1.titleColor = [UIColor blackColor];
+//    barItem1.selectedTitleColor = [UIColor colorWithRed:0.833 green:0.052 blue:0.130 alpha:1.000];
+//    barItem1.image = [UIImage imageNamed:@"goodsNew"];
+//    barItem1.selectedImage = [UIImage imageNamed:@"goodsNew_d"];
+//    
+//    DLImagedTabbarItem *barItem2 = [[DLImagedTabbarItem alloc] init];
+//    barItem2.title = @"最热";
+//    barItem2.titleColor = [UIColor blackColor];
+//    barItem2.selectedTitleColor = [UIColor colorWithRed:0.833 green:0.052 blue:0.130 alpha:1.000];
+//    barItem2.image = [UIImage imageNamed:@"goodsHot"];
+//    barItem2.selectedImage = [UIImage imageNamed:@"goodsHot_d"];
+//    
+//    DLImagedTabbarItem *barItem3 = [[DLImagedTabbarItem alloc] init];
+//    barItem3.title = @"价格";
+//    barItem3.titleColor = [UIColor blackColor];
+//    barItem3.selectedTitleColor = [UIColor colorWithRed:0.833 green:0.052 blue:0.130 alpha:1.000];
+//    barItem3.image = [UIImage imageNamed:@"goodsPrice"];
+//    barItem3.selectedImage = [UIImage imageNamed:@"goodsPrice_d"];
+//    
+//    DLImagedTabbarView *tabbarView = (DLImagedTabbarView *)self.tabedSlideView.tabarView;
+//    tabbarView.tabbarItems = @[barItem1, barItem2, barItem3];
+//    tabbarView.trackColor = [UIColor colorWithRed:0.833 green:0.052 blue:0.130 alpha:1.000];
     
     self.tabedSlideView.selectedIndex = 0;
 
@@ -60,6 +67,32 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (int)numberOfTabsInDLTabedSlideView:(DLTabedSlideView *)sender{
+    return 3;
+}
+- (UIViewController *)DLTabedSlideView:(DLTabedSlideView *)sender controllerAt:(int)index{
+    switch (index) {
+        case 0:
+        {
+            OneViewController *ctrl = [[OneViewController alloc] init];
+            return ctrl;
+        }
+        case 1:
+        {
+            TwoViewController *ctrl = [[TwoViewController alloc] init];
+            return ctrl;
+        }
+        case 2:
+        {
+            ThreeViewController *ctrl = [[ThreeViewController alloc] init];
+            return ctrl;
+        }
+
+        default:
+            return nil;
+    }
 }
 
 /*

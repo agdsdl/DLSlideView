@@ -9,18 +9,44 @@
 #import <UIKit/UIKit.h>
 #import "DLSlideTabbarProtocol.h"
 
+@interface DLTabedbarItem : NSObject
+@property (nonatomic, strong) NSString *title;
+@property(nonatomic, strong) UIImage *image;
+@property(nonatomic, strong) UIImage *selectedImage;
+
++ (DLTabedbarItem *)itemWithTitle:(NSString *)title image:(UIImage *)image selectedImage:(UIImage *)selectedImage;
+@end
+
+@class DLTabedSlideView;
+
 @protocol DLTabedSlideViewDelegate <NSObject>
-
-
+- (int)numberOfTabsInDLTabedSlideView:(DLTabedSlideView *)sender;
+- (UIViewController *)DLTabedSlideView:(DLTabedSlideView *)sender controllerAt:(int)index;
 @end
 
 @interface DLTabedSlideView : UIView<DLSlideTabbarDelegate>
-@property(nonatomic, strong) NSArray *viewControllers;
-@property(nonatomic, assign) int selectedIndex;
+//@property(nonatomic, strong) NSArray *viewControllers;
 @property(nonatomic, weak) UIViewController *baseViewController;
-@property(nonatomic, strong) IBOutlet id<DLSlideTabbarProtocol> tabarView;
+@property(nonatomic, assign) int selectedIndex;
 
 
-@property(nonatomic, weak) id<DLTabedSlideViewDelegate>delegate;
+//set tabbar properties.
+@property (nonatomic, strong) UIColor *tabItemNormalColor;
+@property (nonatomic, strong) UIColor *tabItemSelectedColor;
+@property(nonatomic, strong) UIImage *tabbarBackgroundImage;
+@property(nonatomic, strong) UIColor *tabbarTrackColor;
+@property(nonatomic, strong) NSArray *tabbarItems;
+@property(nonatomic, assign) float tabbarHeight;
+@property(nonatomic, assign) float tabbarBottomSpacing;
+
+// cache properties
+@property(nonatomic, assign) int cacheCount;
+
+- (void)buildTabbar;
+
+//@property(nonatomic, strong) IBOutlet id<DLSlideTabbarProtocol> tabarView;
+
+
+@property(nonatomic, weak)IBOutlet id<DLTabedSlideViewDelegate>delegate;
 
 @end

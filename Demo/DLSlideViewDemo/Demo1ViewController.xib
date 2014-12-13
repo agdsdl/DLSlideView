@@ -16,39 +16,18 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kb9-tI-3Qf" customClass="DLImagedTabbarView">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="goodsHSeperator" translatesAutoresizingMaskIntoConstraints="NO" id="Lhu-BP-8eO">
-                    <rect key="frame" x="0.0" y="44" width="320" height="1"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="1" id="ibs-Kt-mge"/>
-                    </constraints>
-                </imageView>
-                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CJJ-mu-H46" customClass="DLTabedSlideView">
-                    <rect key="frame" x="0.0" y="52" width="320" height="516"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CJJ-mu-H46" customClass="DLTabedSlideView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" red="0.94117653369903564" green="0.93725496530532837" blue="0.93333339691162109" alpha="1" colorSpace="deviceRGB"/>
                     <connections>
-                        <outlet property="tabarView" destination="Kb9-tI-3Qf" id="4do-BT-dnm"/>
+                        <outlet property="delegate" destination="-1" id="etH-rP-JF8"/>
                     </connections>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstAttribute="trailing" secondItem="Lhu-BP-8eO" secondAttribute="trailing" id="1Nk-7D-WzQ"/>
-                <constraint firstAttribute="trailing" secondItem="CJJ-mu-H46" secondAttribute="trailing" id="3qc-bz-cEF"/>
-                <constraint firstItem="CJJ-mu-H46" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NRB-IE-aOB"/>
-                <constraint firstAttribute="bottom" secondItem="CJJ-mu-H46" secondAttribute="bottom" id="QVO-lV-sIB"/>
-                <constraint firstItem="Lhu-BP-8eO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="W1r-cR-OWq"/>
-                <constraint firstItem="CJJ-mu-H46" firstAttribute="top" secondItem="Lhu-BP-8eO" secondAttribute="bottom" constant="7" id="wXQ-c5-OIn"/>
-            </constraints>
             <point key="canvasLocation" x="219" y="251"/>
         </view>
     </objects>
-    <resources>
-        <image name="goodsHSeperator" width="1" height="1"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

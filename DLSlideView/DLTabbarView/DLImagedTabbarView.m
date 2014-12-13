@@ -44,8 +44,9 @@
     scrollView_ = [[UIScrollView alloc] initWithFrame:self.bounds];
     [self addSubview:scrollView_];
     
-    trackView_ = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-kTrackViewHeight, self.bounds.size.width, kTrackViewHeight)];
+    trackView_ = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-kTrackViewHeight-1, self.bounds.size.width, kTrackViewHeight)];
     [self addSubview:trackView_];
+    trackView_.layer.cornerRadius = 2.0f;
 
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
     [scrollView_ addGestureRecognizer:tap];
@@ -86,6 +87,7 @@
         for (DLImagedTabbarItem *item in tabbarItems) {
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(x, 0, width, height)];
             label.text = item.title;
+            label.backgroundColor = [UIColor clearColor];
             label.textColor = item.titleColor;
             [label sizeToFit];
             label.tag = kLabelTagBase+i;

@@ -33,6 +33,8 @@
 		699CBF981A39BA9500DFAE57 /* goodsNew_d@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 699CBF911A39BA9500DFAE57 /* goodsNew_d@2x.png */; };
 		699CBF991A39BA9500DFAE57 /* goodsPrice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 699CBF921A39BA9500DFAE57 /* goodsPrice@2x.png */; };
 		699CBF9A1A39BA9500DFAE57 /* goodsPrice_d@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 699CBF931A39BA9500DFAE57 /* goodsPrice_d@2x.png */; };
+		69C406011A3C0DD90018BCF9 /* tabbarBk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69C406001A3C0DD90018BCF9 /* tabbarBk@2x.png */; };
+		69C406051A3C186A0018BCF9 /* DLFIFOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C406041A3C186A0018BCF9 /* DLFIFOCache.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +79,9 @@
 		699CBF911A39BA9500DFAE57 /* goodsNew_d@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "goodsNew_d@2x.png"; sourceTree = "<group>"; };
 		699CBF921A39BA9500DFAE57 /* goodsPrice@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "goodsPrice@2x.png"; sourceTree = "<group>"; };
 		699CBF931A39BA9500DFAE57 /* goodsPrice_d@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "goodsPrice_d@2x.png"; sourceTree = "<group>"; };
+		69C406001A3C0DD90018BCF9 /* tabbarBk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbarBk@2x.png"; sourceTree = "<group>"; };
+		69C406031A3C186A0018BCF9 /* DLFIFOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFIFOCache.h; sourceTree = "<group>"; };
+		69C406041A3C186A0018BCF9 /* DLFIFOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFIFOCache.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +175,7 @@
 			children = (
 				699CBF631A39B06800DFAE57 /* DLSlideView.h */,
 				699CBF641A39B06800DFAE57 /* DLSlideView.m */,
+				69C406021A3C18410018BCF9 /* DLCache */,
 				699CBF651A39B06800DFAE57 /* DLTabbarView */,
 				699CBF691A39B06800DFAE57 /* DLTabedSlideView.h */,
 				699CBF6A1A39B06800DFAE57 /* DLTabedSlideView.m */,
@@ -191,6 +197,7 @@
 		699CBF8C1A39BA9500DFAE57 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				69C406001A3C0DD90018BCF9 /* tabbarBk@2x.png */,
 				699CBF8D1A39BA9500DFAE57 /* goodsHot@2x.png */,
 				699CBF8E1A39BA9500DFAE57 /* goodsHot_d@2x.png */,
 				699CBF8F1A39BA9500DFAE57 /* goodsHSeperator@2x.png */,
@@ -200,6 +207,15 @@
 				699CBF931A39BA9500DFAE57 /* goodsPrice_d@2x.png */,
 			);
 			path = resources;
+			sourceTree = "<group>";
+		};
+		69C406021A3C18410018BCF9 /* DLCache */ = {
+			isa = PBXGroup;
+			children = (
+				69C406031A3C186A0018BCF9 /* DLFIFOCache.h */,
+				69C406041A3C186A0018BCF9 /* DLFIFOCache.m */,
+			);
+			path = DLCache;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +280,7 @@
 				699CBF721A39B0B100DFAE57 /* ViewController.xib in Resources */,
 				699CBF5F1A39AFAB00DFAE57 /* Default-568h@2x.png in Resources */,
 				699CBF811A39B52300DFAE57 /* TwoViewController.xib in Resources */,
+				69C406011A3C0DD90018BCF9 /* tabbarBk@2x.png in Resources */,
 				699CBF7F1A39B52300DFAE57 /* ThreeViewController.xib in Resources */,
 				699CBF961A39BA9500DFAE57 /* goodsHSeperator@2x.png in Resources */,
 				699CBF861A39B85A00DFAE57 /* Demo1ViewController.xib in Resources */,
@@ -292,6 +309,7 @@
 				699CBF7C1A39B52300DFAE57 /* OneViewController.m in Sources */,
 				699CBF801A39B52300DFAE57 /* TwoViewController.m in Sources */,
 				699CBF851A39B85A00DFAE57 /* Demo1ViewController.m in Sources */,
+				69C406051A3C186A0018BCF9 /* DLFIFOCache.m in Sources */,
 				699CBF8A1A39B86900DFAE57 /* Demo2ViewController.m in Sources */,
 				699CBF3B1A39AD8700DFAE57 /* main.m in Sources */,
 				699CBF7E1A39B52300DFAE57 /* ThreeViewController.m in Sources */,
