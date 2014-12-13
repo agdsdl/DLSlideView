@@ -114,6 +114,7 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     
+    backgroudView_.frame = self.bounds;
     scrollView_.frame = self.bounds;
     [self layoutTabbar];
 }

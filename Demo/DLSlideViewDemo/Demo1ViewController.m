@@ -35,6 +35,9 @@
     DLTabedbarItem *item3 = [DLTabedbarItem itemWithTitle:@"价格" image:[UIImage imageNamed:@"goodsPrice"] selectedImage:[UIImage imageNamed:@"goodsPrice_d"]];
     self.tabedSlideView.tabbarItems = @[item1, item2, item3];
     [self.tabedSlideView buildTabbar];
+    
+    self.tabedSlideView.selectedIndex = 0;
+
 //    DLImagedTabbarItem *barItem1 = [[DLImagedTabbarItem alloc] init];
 //    barItem1.title = @"最新";
 //    barItem1.titleColor = [UIColor blackColor];
@@ -60,7 +63,6 @@
 //    tabbarView.tabbarItems = @[barItem1, barItem2, barItem3];
 //    tabbarView.trackColor = [UIColor colorWithRed:0.833 green:0.052 blue:0.130 alpha:1.000];
     
-    self.tabedSlideView.selectedIndex = 0;
 
 }
 
