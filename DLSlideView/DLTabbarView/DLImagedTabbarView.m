@@ -9,6 +9,7 @@
 #import "DLImagedTabbarView.h"
 
 #define kTrackViewHeight 2
+#define kImageSpacingX 3.0f
 
 #define kLabelTagBase 1000
 #define kImageTagBase 2000
@@ -87,6 +88,7 @@
         for (DLImagedTabbarItem *item in tabbarItems) {
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(x, 0, width, height)];
             label.text = item.title;
+            label.font = [UIFont systemFontOfSize:15];
             label.backgroundColor = [UIColor clearColor];
             label.textColor = item.titleColor;
             [label sizeToFit];
@@ -128,8 +130,8 @@
         UILabel *label = (UILabel *)[scrollView_ viewWithTag:kLabelTagBase+i];
         UIImageView *imageView = (UIImageView *)[scrollView_ viewWithTag:kImageTagBase+i];
         UIImageView *selectedIamgeView = (UIImageView *)[scrollView_ viewWithTag:kSelectedImageTagBase+i];
-        label.frame = CGRectMake(x + (width-label.bounds.size.width)/2.0f, (height-label.bounds.size.height)/2.0f, CGRectGetWidth(label.bounds), CGRectGetHeight(label.bounds));
-        imageView.frame = CGRectMake(label.frame.origin.x + label.bounds.size.width+5, (height-imageView.bounds.size.height)/2.0, CGRectGetWidth(imageView.bounds), CGRectGetHeight(imageView.bounds));
+        label.frame = CGRectMake(x + (width-label.bounds.size.width-CGRectGetWidth(imageView.bounds))/2.0f, (height-label.bounds.size.height)/2.0f, CGRectGetWidth(label.bounds), CGRectGetHeight(label.bounds));
+        imageView.frame = CGRectMake(label.frame.origin.x + label.bounds.size.width+kImageSpacingX, (height-imageView.bounds.size.height)/2.0, CGRectGetWidth(imageView.bounds), CGRectGetHeight(imageView.bounds));
         selectedIamgeView.frame = imageView.frame;
     }
     
