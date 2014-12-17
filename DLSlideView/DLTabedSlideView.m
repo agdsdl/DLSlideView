@@ -152,6 +152,9 @@
 }
 - (void)DLSlideView:(DLSlideView *)slide didSwitchTo:(int)index{
     [tabbar_ setSelectedIndex:index];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(DLTabedSlideView:didSelectedAt:)]) {
+        [self.delegate DLTabedSlideView:self didSelectedAt:index];
+    }
 }
 - (void)DLSlideView:(DLSlideView *)slide switchCanceled:(int)oldIndex{
     [tabbar_ setSelectedIndex:oldIndex];

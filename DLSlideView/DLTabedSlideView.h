@@ -22,6 +22,8 @@
 @protocol DLTabedSlideViewDelegate <NSObject>
 - (int)numberOfTabsInDLTabedSlideView:(DLTabedSlideView *)sender;
 - (UIViewController *)DLTabedSlideView:(DLTabedSlideView *)sender controllerAt:(int)index;
+@optional
+- (void)DLTabedSlideView:(DLTabedSlideView *)sender didSelectedAt:(int)index;
 @end
 
 @interface DLTabedSlideView : UIView<DLSlideTabbarDelegate>

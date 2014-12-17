@@ -73,6 +73,10 @@
         [vc didMoveToParentViewController:self.baseViewController];
         oldIndex_ = index;
         oldCtrl_ = vc;
+        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(DLSlideView:didSwitchTo:)]) {
+            [self.delegate DLSlideView:self didSwitchTo:index];
+        }
     }
 }
 
@@ -131,6 +135,10 @@
         } completion:^(BOOL finished) {
             [oldvc removeFromParentViewController];
             [newvc didMoveToParentViewController:self.baseViewController];
+            
+            if (self.delegate && [self.delegate respondsToSelector:@selector(DLSlideView:didSwitchTo:)]) {
+                [self.delegate DLSlideView:self didSwitchTo:index];
+            }
         }];
         
         oldIndex_ = index;
