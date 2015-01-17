@@ -56,10 +56,12 @@
 - (void)removeOld{
     [self removeCtrl:oldCtrl_];
     oldCtrl_ = nil;
+    oldIndex_ = -1;
 }
 - (void)removeWill{
     [self removeCtrl:willCtrl_];
     willCtrl_ = nil;
+    panToIndex_ = -1;
 }
 - (void)showAt:(int)index{
     if (oldIndex_ != index) {
@@ -87,18 +89,18 @@
     [vc removeFromParentViewController];
 }
 
-- (void)removeAt:(int)index{
-    if (oldIndex_ == index) {
-        oldIndex_ = -1;
-    }
-    
-    if (index >= 0 && index <= [self.dataSource numberOfControllersInDLSlideView:self]) {
-        UIViewController *vc = [self.dataSource DLSlideView:self controllerAt:index];
-        [vc willMoveToParentViewController:nil];
-        [vc.view removeFromSuperview];
-        [vc removeFromParentViewController];
-    }
-}
+//- (void)removeAt:(int)index{
+//    if (oldIndex_ == index) {
+//        oldIndex_ = -1;
+//    }
+//    
+//    if (index >= 0 && index <= [self.dataSource numberOfControllersInDLSlideView:self]) {
+//        UIViewController *vc = [self.dataSource DLSlideView:self controllerAt:index];
+//        [vc willMoveToParentViewController:nil];
+//        [vc.view removeFromSuperview];
+//        [vc removeFromParentViewController];
+//    }
+//}
 - (void)switchTo:(int)index{
     if (index == oldIndex_) {
         return;
@@ -128,6 +130,7 @@
         }
         
         newvc.view.frame = newStartRect;
+        [newvc willMoveToParentViewController:self.baseViewController];
         
         [self.baseViewController transitionFromViewController:oldvc toViewController:newvc duration:0.4 options:0 animations:^{
             newvc.view.frame = nowRect;
@@ -147,6 +150,9 @@
     else{
         [self showAt:index];
     }
+    
+    willCtrl_ = nil;
+    panToIndex_ = -1;
 }
 
 - (void)repositionForOffsetX:(CGFloat)offsetx{
@@ -192,7 +198,6 @@
         if (panToIndex_ >= 0 && panToIndex_ < [self.dataSource numberOfControllersInDLSlideView:self] && panToIndex_ != oldIndex_) {
             //[self removeAt:panToIndex_];
             [self removeWill];
-            panToIndex_ = -1;
         }
         if (self.delegate && [self.delegate respondsToSelector:@selector(DLSlideView:switchCanceled:)]) {
             [self.delegate DLSlideView:self switchCanceled:oldIndex_];
@@ -235,22 +240,27 @@
         panStartPoint_ = point;
     }
     else if (pan.state == UIGestureRecognizerStateChanged){
-        panToIndex_ = -1;
+        int panToIndex = -1;
         float offsetx = point.x - panStartPoint_.x;
         
         if (offsetx > 0) {
-            panToIndex_ = oldIndex_ - 1;
+            panToIndex = oldIndex_ - 1;
         }
         else if(offsetx < 0){
-            panToIndex_ = oldIndex_ + 1;
+            panToIndex = oldIndex_ + 1;
         }
         
-        if (panToIndex_ < 0 || panToIndex_ >= [self.dataSource numberOfControllersInDLSlideView:self]) {
+        if (panToIndex < 0 || panToIndex >= [self.dataSource numberOfControllersInDLSlideView:self]) {
+            panToIndex_ = panToIndex;
             [self repositionForOffsetX:offsetx/2.0f];
         }
         else{
-            if (!willCtrl_) {
-                willCtrl_ = [self.dataSource DLSlideView:self controllerAt:panToIndex_];
+            if (panToIndex != panToIndex_) {
+                if (willCtrl_) {
+                    [self removeWill];
+                }
+                willCtrl_ = [self.dataSource DLSlideView:self controllerAt:panToIndex];
+                panToIndex_ = panToIndex;
             }
             [self repositionForOffsetX:offsetx];
         }
