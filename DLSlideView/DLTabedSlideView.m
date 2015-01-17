@@ -9,7 +9,7 @@
 #import "DLTabedSlideView.h"
 #import "DLImagedTabbarView.h"
 #import "DLSlideView.h"
-#import "DLFIFOCache.h"
+#import "DLLRUCache.h"
 
 #define kDefaultTabbarHeight 34
 #define kDefaultTabbarBottomSpacing 0
@@ -35,7 +35,7 @@
 @implementation DLTabedSlideView{
     DLSlideView *slideView_;
     DLImagedTabbarView *tabbar_;
-    DLFIFOCache *ctrlCache_;
+    DLLRUCache *ctrlCache_;
 }
 
 - (void)commonInit{
@@ -51,7 +51,7 @@
     slideView_.dataSource = self;
     [self addSubview:slideView_];
     
-    ctrlCache_ = [[DLFIFOCache alloc] initWithCount:4];
+    ctrlCache_ = [[DLLRUCache alloc] initWithCount:4];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder{

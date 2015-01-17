@@ -6,11 +6,11 @@
 //  Copyright (c) 2014年 dongle. All rights reserved.
 //
 
-#import "DLFIFOCache.h"
+#import "DLLRUCache.h"
 
-@implementation DLFIFOCache{
+@implementation DLLRUCache{
     NSMutableDictionary *dic_;
-    NSMutableArray *fifoKeyList_;
+    NSMutableArray *lruKeyList_;
     int capacity_;
 }
 
@@ -18,38 +18,38 @@
     if (self = [super init]) {
         capacity_ = count;
         dic_ = [NSMutableDictionary dictionaryWithCapacity:capacity_];
-        fifoKeyList_ = [NSMutableArray arrayWithCapacity:capacity_];
+        lruKeyList_ = [NSMutableArray arrayWithCapacity:capacity_];
     }
 
     return self;
 }
 
 - (void)setObject:(id)object forKey:(NSString *)key{
-    if (![fifoKeyList_ containsObject:key]) {
-        if (fifoKeyList_.count < capacity_) {
+    if (![lruKeyList_ containsObject:key]) {
+        if (lruKeyList_.count < capacity_) {
             [dic_ setValue:object forKey:key];
-            [fifoKeyList_ addObject:key];
+            [lruKeyList_ addObject:key];
         }
         else{
-            NSString *longTimeUnusedKey = [fifoKeyList_ firstObject];
+            NSString *longTimeUnusedKey = [lruKeyList_ firstObject];
             [dic_ setValue:nil forKey:longTimeUnusedKey];
-            [fifoKeyList_ removeObjectAtIndex:0];
+            [lruKeyList_ removeObjectAtIndex:0];
             
             [dic_ setValue:object forKey:key];
-            [fifoKeyList_ addObject:key];
+            [lruKeyList_ addObject:key];
         }
     }
     else{
         [dic_ setValue:object forKey:key];
-        [fifoKeyList_ removeObject:key];
-        [fifoKeyList_ addObject:key];
+        [lruKeyList_ removeObject:key];
+        [lruKeyList_ addObject:key];
     }
 }
 
 - (id)objectForKey:(NSString *)key{
-    if ([fifoKeyList_ containsObject:key]) {
-        [fifoKeyList_ removeObject:key];
-        [fifoKeyList_ addObject:key];
+    if ([lruKeyList_ containsObject:key]) {
+        [lruKeyList_ removeObject:key];
+        [lruKeyList_ addObject:key];
         
         return [dic_ objectForKey:key];
     }

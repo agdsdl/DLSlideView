@@ -34,7 +34,7 @@
 		699CBF991A39BA9500DFAE57 /* goodsPrice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 699CBF921A39BA9500DFAE57 /* goodsPrice@2x.png */; };
 		699CBF9A1A39BA9500DFAE57 /* goodsPrice_d@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 699CBF931A39BA9500DFAE57 /* goodsPrice_d@2x.png */; };
 		69C406011A3C0DD90018BCF9 /* tabbarBk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69C406001A3C0DD90018BCF9 /* tabbarBk@2x.png */; };
-		69C406051A3C186A0018BCF9 /* DLFIFOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C406041A3C186A0018BCF9 /* DLFIFOCache.m */; };
+		69C406051A3C186A0018BCF9 /* DLLRUCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C406041A3C186A0018BCF9 /* DLLRUCache.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,8 +80,8 @@
 		699CBF921A39BA9500DFAE57 /* goodsPrice@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "goodsPrice@2x.png"; sourceTree = "<group>"; };
 		699CBF931A39BA9500DFAE57 /* goodsPrice_d@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "goodsPrice_d@2x.png"; sourceTree = "<group>"; };
 		69C406001A3C0DD90018BCF9 /* tabbarBk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbarBk@2x.png"; sourceTree = "<group>"; };
-		69C406031A3C186A0018BCF9 /* DLFIFOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFIFOCache.h; sourceTree = "<group>"; };
-		69C406041A3C186A0018BCF9 /* DLFIFOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFIFOCache.m; sourceTree = "<group>"; };
+		69C406031A3C186A0018BCF9 /* DLLRUCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLRUCache.h; sourceTree = "<group>"; };
+		69C406041A3C186A0018BCF9 /* DLLRUCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLRUCache.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,8 +212,8 @@
 		69C406021A3C18410018BCF9 /* DLCache */ = {
 			isa = PBXGroup;
 			children = (
-				69C406031A3C186A0018BCF9 /* DLFIFOCache.h */,
-				69C406041A3C186A0018BCF9 /* DLFIFOCache.m */,
+				69C406031A3C186A0018BCF9 /* DLLRUCache.h */,
+				69C406041A3C186A0018BCF9 /* DLLRUCache.m */,
 			);
 			path = DLCache;
 			sourceTree = "<group>";
@@ -309,7 +309,7 @@
 				699CBF7C1A39B52300DFAE57 /* OneViewController.m in Sources */,
 				699CBF801A39B52300DFAE57 /* TwoViewController.m in Sources */,
 				699CBF851A39B85A00DFAE57 /* Demo1ViewController.m in Sources */,
-				69C406051A3C186A0018BCF9 /* DLFIFOCache.m in Sources */,
+				69C406051A3C186A0018BCF9 /* DLLRUCache.m in Sources */,
 				699CBF8A1A39B86900DFAE57 /* Demo2ViewController.m in Sources */,
 				699CBF3B1A39AD8700DFAE57 /* main.m in Sources */,
 				699CBF7E1A39B52300DFAE57 /* ThreeViewController.m in Sources */,

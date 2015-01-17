@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DLFIFOCache : NSObject
+@interface DLLRUCache : NSObject
 
 - (id)initWithCount:(int)count;
 
