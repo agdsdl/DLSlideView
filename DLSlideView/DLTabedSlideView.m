@@ -121,22 +121,22 @@
 //    }
 //}
 
-- (void)setSelectedIndex:(int)selectedIndex{
+- (void)setSelectedIndex:(NSInteger)selectedIndex{
     _selectedIndex = selectedIndex;
     [slideView_ setSelectedIndex:selectedIndex];
     [tabbar_ setSelectedIndex:selectedIndex];
 }
 
-- (void)DLSlideTabbar:(id)sender selectAt:(int)index{
+- (void)DLSlideTabbar:(id)sender selectAt:(NSInteger)index{
     [slideView_ setSelectedIndex:index];
 }
 
-- (int)numberOfControllersInDLSlideView:(DLSlideView *)sender{
+- (NSInteger)numberOfControllersInDLSlideView:(DLSlideView *)sender{
     return [self.delegate numberOfTabsInDLTabedSlideView:self];
 }
 
-- (UIViewController *)DLSlideView:(DLSlideView *)sender controllerAt:(int)index{
-    NSString *key = [NSString stringWithFormat:@"%d", index];
+- (UIViewController *)DLSlideView:(DLSlideView *)sender controllerAt:(NSInteger)index{
+    NSString *key = [NSString stringWithFormat:@"%ld", index];
     if ([ctrlCache_ objectForKey:key]) {
         return [ctrlCache_ objectForKey:key];
     }
@@ -147,16 +147,16 @@
     }
 }
 
-- (void)DLSlideView:(DLSlideView *)slide switchingFrom:(int)oldIndex to:(int)toIndex percent:(float)percent{
+- (void)DLSlideView:(DLSlideView *)slide switchingFrom:(NSInteger)oldIndex to:(NSInteger)toIndex percent:(float)percent{
     [tabbar_ switchingFrom:oldIndex to:toIndex percent:percent];
 }
-- (void)DLSlideView:(DLSlideView *)slide didSwitchTo:(int)index{
+- (void)DLSlideView:(DLSlideView *)slide didSwitchTo:(NSInteger)index{
     [tabbar_ setSelectedIndex:index];
     if (self.delegate && [self.delegate respondsToSelector:@selector(DLTabedSlideView:didSelectedAt:)]) {
         [self.delegate DLTabedSlideView:self didSelectedAt:index];
     }
 }
-- (void)DLSlideView:(DLSlideView *)slide switchCanceled:(int)oldIndex{
+- (void)DLSlideView:(DLSlideView *)slide switchCanceled:(NSInteger)oldIndex{
     [tabbar_ setSelectedIndex:oldIndex];
 }
 

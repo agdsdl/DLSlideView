@@ -23,9 +23,9 @@
 @property(nonatomic, strong) NSArray *tabbarItems;
 //- (void)addBarItemWithTitle:(NSString *)title titleColor:(UIColor *)titleColor image:(UIImage *)image selectedImage:(UIImage *)selectedImage;
 
-@property(nonatomic, assign) int selectedIndex;
-@property(nonatomic, readonly) int tabbarCount;
+@property(nonatomic, assign) NSInteger selectedIndex;
+@property(nonatomic, readonly) NSInteger tabbarCount;
 @property(nonatomic, weak) id<DLSlideTabbarDelegate> delegate;
-- (void)switchingFrom:(int)fromIndex to:(int)toIndex percent:(float)percent;
+- (void)switchingFrom:(NSInteger)fromIndex to:(NSInteger)toIndex percent:(float)percent;
 
 @end

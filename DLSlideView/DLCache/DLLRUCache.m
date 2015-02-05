@@ -11,10 +11,10 @@
 @implementation DLLRUCache{
     NSMutableDictionary *dic_;
     NSMutableArray *lruKeyList_;
-    int capacity_;
+    NSInteger capacity_;
 }
 
-- (id)initWithCount:(int)count{
+- (id)initWithCount:(NSInteger)count{
     if (self = [super init]) {
         capacity_ = count;
         dic_ = [NSMutableDictionary dictionaryWithCapacity:capacity_];

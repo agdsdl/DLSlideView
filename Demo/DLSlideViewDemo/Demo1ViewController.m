@@ -71,10 +71,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (int)numberOfTabsInDLTabedSlideView:(DLTabedSlideView *)sender{
+- (NSInteger)numberOfTabsInDLTabedSlideView:(DLTabedSlideView *)sender{
     return 3;
 }
-- (UIViewController *)DLTabedSlideView:(DLTabedSlideView *)sender controllerAt:(int)index{
+- (UIViewController *)DLTabedSlideView:(DLTabedSlideView *)sender controllerAt:(NSInteger)index{
     switch (index) {
         case 0:
         {

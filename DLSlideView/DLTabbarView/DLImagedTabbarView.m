@@ -84,7 +84,7 @@
         float width = self.bounds.size.width/tabbarItems.count;
         float height = self.bounds.size.height;
         float x = 0.0f;
-        int i=0;
+        NSInteger i=0;
         for (DLImagedTabbarItem *item in tabbarItems) {
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(x, 0, width, height)];
             label.text = item.title;
@@ -125,7 +125,7 @@
     float width = self.bounds.size.width/self.tabbarItems.count;
     float height = self.bounds.size.height;
     float x = 0.0f;
-    for (int i=0; i<self.tabbarItems.count; i++) {
+    for (NSInteger i=0; i<self.tabbarItems.count; i++) {
         x = i*width;
         UILabel *label = (UILabel *)[scrollView_ viewWithTag:kLabelTagBase+i];
         UIImageView *imageView = (UIImageView *)[scrollView_ viewWithTag:kImageTagBase+i];
@@ -139,11 +139,11 @@
     trackView_.frame = CGRectMake(trackX, trackView_.frame.origin.y, width, kTrackViewHeight);
 }
 
-- (int)tabbarCount{
-    return (int)self.tabbarItems.count;
+- (NSInteger)tabbarCount{
+    return self.tabbarItems.count;
 }
 
-- (void)switchingFrom:(int)fromIndex to:(int)toIndex percent:(float)percent{
+- (void)switchingFrom:(NSInteger)fromIndex to:(NSInteger)toIndex percent:(float)percent{
     DLImagedTabbarItem *fromItem = [self.tabbarItems objectAtIndex:fromIndex];
     UILabel *fromLabel = (UILabel *)[scrollView_ viewWithTag:kLabelTagBase+fromIndex];
     UIImageView *fromIamge = (UIImageView *)[scrollView_ viewWithTag:kImageTagBase+fromIndex];
@@ -174,7 +174,7 @@
     trackView_.frame = CGRectMake(trackX, trackView_.frame.origin.y, CGRectGetWidth(trackView_.bounds), CGRectGetHeight(trackView_.bounds));
 }
 
-- (void)setSelectedIndex:(int)selectedIndex{
+- (void)setSelectedIndex:(NSInteger)selectedIndex{
     if (_selectedIndex != selectedIndex) {
         if (_selectedIndex >= 0) {
             DLImagedTabbarItem *fromItem = [self.tabbarItems objectAtIndex:_selectedIndex];
@@ -208,7 +208,7 @@
     float width = self.bounds.size.width/self.tabbarItems.count;
 
     CGPoint point = [tap locationInView:scrollView_];
-    int i = point.x/width;
+    NSInteger i = point.x/width;
     self.selectedIndex = i;
     if (self.delegate) {
         [self.delegate DLSlideTabbar:self selectAt:i];

@@ -10,7 +10,7 @@
 
 @interface DLLRUCache : NSObject
 
-- (id)initWithCount:(int)count;
+- (id)initWithCount:(NSInteger)count;
 
 - (void)setObject:(id)object forKey:(NSString *)key;
 - (id)objectForKey:(NSString *)key;

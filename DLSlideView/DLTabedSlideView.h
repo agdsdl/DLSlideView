@@ -20,16 +20,16 @@
 @class DLTabedSlideView;
 
 @protocol DLTabedSlideViewDelegate <NSObject>
-- (int)numberOfTabsInDLTabedSlideView:(DLTabedSlideView *)sender;
-- (UIViewController *)DLTabedSlideView:(DLTabedSlideView *)sender controllerAt:(int)index;
+- (NSInteger)numberOfTabsInDLTabedSlideView:(DLTabedSlideView *)sender;
+- (UIViewController *)DLTabedSlideView:(DLTabedSlideView *)sender controllerAt:(NSInteger)index;
 @optional
-- (void)DLTabedSlideView:(DLTabedSlideView *)sender didSelectedAt:(int)index;
+- (void)DLTabedSlideView:(DLTabedSlideView *)sender didSelectedAt:(NSInteger)index;
 @end
 
 @interface DLTabedSlideView : UIView<DLSlideTabbarDelegate>
 //@property(nonatomic, strong) NSArray *viewControllers;
 @property(nonatomic, weak) UIViewController *baseViewController;
-@property(nonatomic, assign) int selectedIndex;
+@property(nonatomic, assign) NSInteger selectedIndex;
 
 
 //set tabbar properties.
@@ -42,7 +42,7 @@
 @property(nonatomic, assign) float tabbarBottomSpacing;
 
 // cache properties
-@property(nonatomic, assign) int cacheCount;
+@property(nonatomic, assign) NSInteger cacheCount;
 
 - (void)buildTabbar;
 

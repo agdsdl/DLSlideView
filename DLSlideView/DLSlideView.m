@@ -11,8 +11,8 @@
 #define kPanSwitchOffsetThreshold 50.0f
 
 @implementation DLSlideView{
-    int oldIndex_;
-    int panToIndex_;
+    NSInteger oldIndex_;
+    NSInteger panToIndex_;
     UIPanGestureRecognizer *pan_;
     CGPoint panStartPoint_;
     
@@ -44,10 +44,10 @@
     return self;
 }
 
-- (int)selectedIndex{
+- (NSInteger)selectedIndex{
     return oldIndex_;
 }
-- (void)setSelectedIndex:(int)selectedIndex{
+- (void)setSelectedIndex:(NSInteger)selectedIndex{
     if (selectedIndex != oldIndex_) {
         [self switchTo:selectedIndex];
     }
@@ -66,7 +66,7 @@
     willCtrl_ = nil;
     panToIndex_ = -1;
 }
-- (void)showAt:(int)index{
+- (void)showAt:(NSInteger)index{
     if (oldIndex_ != index) {
         //[self removeAt:oldIndex_];
         [self removeOld];
@@ -104,7 +104,7 @@
 //        [vc removeFromParentViewController];
 //    }
 //}
-- (void)switchTo:(int)index{
+- (void)switchTo:(NSInteger)index{
     if (index == oldIndex_) {
         return;
     }
@@ -249,7 +249,7 @@
         panStartPoint_ = point;
     }
     else if (pan.state == UIGestureRecognizerStateChanged){
-        int panToIndex = -1;
+        NSInteger panToIndex = -1;
         float offsetx = point.x - panStartPoint_.x;
         
         if (offsetx > 0) {
