@@ -18,10 +18,13 @@
     
     UIViewController *oldCtrl_;
     UIViewController *willCtrl_;
+    
+    BOOL isSwitching_;
 }
 
 - (void)commonInit{
     oldIndex_ = -1;
+    isSwitching_ = NO;
     
     pan_ = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panHandler:)];
     [self addGestureRecognizer:pan_];
@@ -105,8 +108,12 @@
     if (index == oldIndex_) {
         return;
     }
-    
-    if (oldCtrl_ != nil) {
+    if (isSwitching_) {
+        return;
+    }
+
+    if (oldCtrl_ != nil && oldCtrl_.parentViewController == self.baseViewController) {
+        isSwitching_ = YES;
         //UIViewController *oldvc = [self.dataSource DLSlideView:self controllerAt:oldIndex_];;
         UIViewController *oldvc = oldCtrl_;
         UIViewController *newvc = [self.dataSource DLSlideView:self controllerAt:index];
@@ -142,6 +149,8 @@
             if (self.delegate && [self.delegate respondsToSelector:@selector(DLSlideView:didSwitchTo:)]) {
                 [self.delegate DLSlideView:self didSwitchTo:index];
             }
+            
+            isSwitching_ = NO;
         }];
         
         oldIndex_ = index;
