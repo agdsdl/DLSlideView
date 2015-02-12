@@ -7,7 +7,7 @@
 //
 
 #import "DLTabedSlideView.h"
-#import "DLImagedTabbarView.h"
+#import "DLFixedTabbarView.h"
 #import "DLSlideView.h"
 #import "DLLRUCache.h"
 
@@ -34,7 +34,7 @@
 
 @implementation DLTabedSlideView{
     DLSlideView *slideView_;
-    DLImagedTabbarView *tabbar_;
+    DLFixedTabbarView *tabbar_;
     DLLRUCache *ctrlCache_;
 }
 
@@ -42,7 +42,7 @@
     self.tabbarHeight = kDefaultTabbarHeight;
     self.tabbarBottomSpacing = kDefaultTabbarBottomSpacing;
     
-    tabbar_ = [[DLImagedTabbarView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.tabbarHeight)];
+    tabbar_ = [[DLFixedTabbarView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.tabbarHeight)];
     tabbar_.delegate = self;
     [self addSubview:tabbar_];
     
@@ -92,7 +92,7 @@
 - (void)buildTabbar{
     NSMutableArray *tabbarItems = [NSMutableArray array];
     for (DLTabedbarItem *item in self.tabbarItems) {
-        DLImagedTabbarItem *barItem = [[DLImagedTabbarItem alloc] init];
+        DLFixedTabbarViewTabItem *barItem = [[DLFixedTabbarViewTabItem alloc] init];
         barItem.title = item.title;
         barItem.titleColor = self.tabItemNormalColor;
         barItem.selectedTitleColor = self.tabItemSelectedColor;

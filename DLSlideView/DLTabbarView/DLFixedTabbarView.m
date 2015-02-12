@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 dongle. All rights reserved.
 //
 
-#import "DLImagedTabbarView.h"
+#import "DLFixedTabbarView.h"
 
 #define kTrackViewHeight 2
 #define kImageSpacingX 3.0f
@@ -15,10 +15,10 @@
 #define kImageTagBase 2000
 #define kSelectedImageTagBase 3000
 
-@implementation DLImagedTabbarItem
+@implementation DLFixedTabbarViewTabItem
 @end
 
-@implementation DLImagedTabbarView{
+@implementation DLFixedTabbarView{
     UIScrollView *scrollView_;
     UIImageView *backgroudView_;
     UIImageView *trackView_;
@@ -85,7 +85,7 @@
         float height = self.bounds.size.height;
         float x = 0.0f;
         NSInteger i=0;
-        for (DLImagedTabbarItem *item in tabbarItems) {
+        for (DLFixedTabbarViewTabItem *item in tabbarItems) {
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(x, 0, width, height)];
             label.text = item.title;
             label.font = [UIFont systemFontOfSize:15];
@@ -144,7 +144,7 @@
 }
 
 - (void)switchingFrom:(NSInteger)fromIndex to:(NSInteger)toIndex percent:(float)percent{
-    DLImagedTabbarItem *fromItem = [self.tabbarItems objectAtIndex:fromIndex];
+    DLFixedTabbarViewTabItem *fromItem = [self.tabbarItems objectAtIndex:fromIndex];
     UILabel *fromLabel = (UILabel *)[scrollView_ viewWithTag:kLabelTagBase+fromIndex];
     UIImageView *fromIamge = (UIImageView *)[scrollView_ viewWithTag:kImageTagBase+fromIndex];
     UIImageView *fromSelectedIamge = (UIImageView *)[scrollView_ viewWithTag:kSelectedImageTagBase+fromIndex];
@@ -153,7 +153,7 @@
     fromSelectedIamge.alpha = (1-percent);
 
     if (toIndex >= 0 && toIndex < [self tabbarCount]) {
-        DLImagedTabbarItem *toItem = [self.tabbarItems objectAtIndex:toIndex];
+        DLFixedTabbarViewTabItem *toItem = [self.tabbarItems objectAtIndex:toIndex];
         UILabel *toLabel = (UILabel *)[scrollView_ viewWithTag:kLabelTagBase+toIndex];
         UIImageView *toIamge = (UIImageView *)[scrollView_ viewWithTag:kImageTagBase+toIndex];
         UIImageView *toSelectedIamge = (UIImageView *)[scrollView_ viewWithTag:kSelectedImageTagBase+toIndex];
@@ -177,7 +177,7 @@
 - (void)setSelectedIndex:(NSInteger)selectedIndex{
     if (_selectedIndex != selectedIndex) {
         if (_selectedIndex >= 0) {
-            DLImagedTabbarItem *fromItem = [self.tabbarItems objectAtIndex:_selectedIndex];
+            DLFixedTabbarViewTabItem *fromItem = [self.tabbarItems objectAtIndex:_selectedIndex];
             UILabel *fromLabel = (UILabel *)[scrollView_ viewWithTag:kLabelTagBase+_selectedIndex];
             UIImageView *fromIamge = (UIImageView *)[scrollView_ viewWithTag:kImageTagBase+_selectedIndex];
             UIImageView *fromSelectedIamge = (UIImageView *)[scrollView_ viewWithTag:kSelectedImageTagBase+_selectedIndex];
@@ -187,7 +187,7 @@
         }
         
         if (selectedIndex >= 0 && selectedIndex < [self tabbarCount]) {
-            DLImagedTabbarItem *toItem = [self.tabbarItems objectAtIndex:selectedIndex];
+            DLFixedTabbarViewTabItem *toItem = [self.tabbarItems objectAtIndex:selectedIndex];
             UILabel *toLabel = (UILabel *)[scrollView_ viewWithTag:kLabelTagBase+selectedIndex];
             UIImageView *toIamge = (UIImageView *)[scrollView_ viewWithTag:kImageTagBase+selectedIndex];
             UIImageView *toSelectedIamge = (UIImageView *)[scrollView_ viewWithTag:kSelectedImageTagBase+selectedIndex];

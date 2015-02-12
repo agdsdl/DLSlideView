@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "DLSlideTabbarProtocol.h"
 
-@interface DLImagedTabbarItem : NSObject
+@interface DLFixedTabbarViewTabItem : NSObject
 @property(nonatomic, strong) NSString *title;
 @property(nonatomic, strong) UIImage *image;
 @property(nonatomic, strong) UIImage *selectedImage;
@@ -17,7 +17,7 @@
 @property(nonatomic, strong) UIColor *selectedTitleColor;
 @end
 
-@interface DLImagedTabbarView : UIView<DLSlideTabbarProtocol>
+@interface DLFixedTabbarView : UIView<DLSlideTabbarProtocol>
 @property(nonatomic, strong) UIImage *backgroundImage;
 @property(nonatomic, strong) UIColor *trackColor;
 @property(nonatomic, strong) NSArray *tabbarItems;
