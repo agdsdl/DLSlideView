@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DLCacheProtocol.h"
 
-@interface DLLRUCache : NSObject
+@interface DLLRUCache : NSObject<DLCacheProtocol>
 
 - (id)initWithCount:(NSInteger)count;
 

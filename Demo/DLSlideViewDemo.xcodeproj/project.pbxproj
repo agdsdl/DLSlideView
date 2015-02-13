@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		692EEB1E1A8DD19E00A712C1 /* DLCustomSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 692EEB1D1A8DD19E00A712C1 /* DLCustomSlideView.m */; };
+		692EEB231A8DE77800A712C1 /* PageNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 692EEB211A8DE77800A712C1 /* PageNViewController.m */; };
+		692EEB241A8DE77800A712C1 /* PageNViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 692EEB221A8DE77800A712C1 /* PageNViewController.xib */; };
 		699CBF3B1A39AD8700DFAE57 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 699CBF3A1A39AD8700DFAE57 /* main.m */; };
 		699CBF3E1A39AD8700DFAE57 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 699CBF3D1A39AD8700DFAE57 /* AppDelegate.m */; };
 		699CBF461A39AD8700DFAE57 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 699CBF451A39AD8700DFAE57 /* Images.xcassets */; };
@@ -35,9 +38,17 @@
 		699CBF9A1A39BA9500DFAE57 /* goodsPrice_d@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 699CBF931A39BA9500DFAE57 /* goodsPrice_d@2x.png */; };
 		69C406011A3C0DD90018BCF9 /* tabbarBk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69C406001A3C0DD90018BCF9 /* tabbarBk@2x.png */; };
 		69C406051A3C186A0018BCF9 /* DLLRUCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C406041A3C186A0018BCF9 /* DLLRUCache.m */; };
+		69C4A55C1A8C857A0095B5A5 /* DLScrollTabbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C4A55B1A8C857A0095B5A5 /* DLScrollTabbarView.m */; };
+		69C4A55F1A8C8C860095B5A5 /* DLUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C4A55E1A8C8C860095B5A5 /* DLUtility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		692EEB1C1A8DD19E00A712C1 /* DLCustomSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCustomSlideView.h; sourceTree = "<group>"; };
+		692EEB1D1A8DD19E00A712C1 /* DLCustomSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCustomSlideView.m; sourceTree = "<group>"; };
+		692EEB1F1A8DD5B900A712C1 /* DLCacheProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLCacheProtocol.h; sourceTree = "<group>"; };
+		692EEB201A8DE77800A712C1 /* PageNViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageNViewController.h; sourceTree = "<group>"; };
+		692EEB211A8DE77800A712C1 /* PageNViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageNViewController.m; sourceTree = "<group>"; };
+		692EEB221A8DE77800A712C1 /* PageNViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageNViewController.xib; sourceTree = "<group>"; };
 		699CBF351A39AD8700DFAE57 /* DLSlideViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DLSlideViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		699CBF391A39AD8700DFAE57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		699CBF3A1A39AD8700DFAE57 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -82,6 +93,10 @@
 		69C406001A3C0DD90018BCF9 /* tabbarBk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbarBk@2x.png"; sourceTree = "<group>"; };
 		69C406031A3C186A0018BCF9 /* DLLRUCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLRUCache.h; sourceTree = "<group>"; };
 		69C406041A3C186A0018BCF9 /* DLLRUCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLRUCache.m; sourceTree = "<group>"; };
+		69C4A55A1A8C857A0095B5A5 /* DLScrollTabbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLScrollTabbarView.h; sourceTree = "<group>"; };
+		69C4A55B1A8C857A0095B5A5 /* DLScrollTabbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLScrollTabbarView.m; sourceTree = "<group>"; };
+		69C4A55D1A8C8C860095B5A5 /* DLUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLUtility.h; sourceTree = "<group>"; };
+		69C4A55E1A8C8C860095B5A5 /* DLUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLUtility.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +154,9 @@
 				699CBF791A39B52300DFAE57 /* TwoViewController.h */,
 				699CBF7A1A39B52300DFAE57 /* TwoViewController.m */,
 				699CBF7B1A39B52300DFAE57 /* TwoViewController.xib */,
+				692EEB201A8DE77800A712C1 /* PageNViewController.h */,
+				692EEB211A8DE77800A712C1 /* PageNViewController.m */,
+				692EEB221A8DE77800A712C1 /* PageNViewController.xib */,
 				699CBF381A39AD8700DFAE57 /* Supporting Files */,
 			);
 			path = DLSlideViewDemo;
@@ -177,8 +195,12 @@
 				699CBF641A39B06800DFAE57 /* DLSlideView.m */,
 				69C406021A3C18410018BCF9 /* DLCache */,
 				699CBF651A39B06800DFAE57 /* DLTabbarView */,
+				69C4A55D1A8C8C860095B5A5 /* DLUtility.h */,
+				69C4A55E1A8C8C860095B5A5 /* DLUtility.m */,
 				699CBF691A39B06800DFAE57 /* DLTabedSlideView.h */,
 				699CBF6A1A39B06800DFAE57 /* DLTabedSlideView.m */,
+				692EEB1C1A8DD19E00A712C1 /* DLCustomSlideView.h */,
+				692EEB1D1A8DD19E00A712C1 /* DLCustomSlideView.m */,
 			);
 			name = DLSlideView;
 			path = ../DLSlideView;
@@ -187,9 +209,11 @@
 		699CBF651A39B06800DFAE57 /* DLTabbarView */ = {
 			isa = PBXGroup;
 			children = (
+				699CBF681A39B06800DFAE57 /* DLSlideTabbarProtocol.h */,
 				699CBF661A39B06800DFAE57 /* DLFixedTabbarView.h */,
 				699CBF671A39B06800DFAE57 /* DLFixedTabbarView.m */,
-				699CBF681A39B06800DFAE57 /* DLSlideTabbarProtocol.h */,
+				69C4A55A1A8C857A0095B5A5 /* DLScrollTabbarView.h */,
+				69C4A55B1A8C857A0095B5A5 /* DLScrollTabbarView.m */,
 			);
 			path = DLTabbarView;
 			sourceTree = "<group>";
@@ -212,6 +236,7 @@
 		69C406021A3C18410018BCF9 /* DLCache */ = {
 			isa = PBXGroup;
 			children = (
+				692EEB1F1A8DD5B900A712C1 /* DLCacheProtocol.h */,
 				69C406031A3C186A0018BCF9 /* DLLRUCache.h */,
 				69C406041A3C186A0018BCF9 /* DLLRUCache.m */,
 			);
@@ -283,6 +308,7 @@
 				69C406011A3C0DD90018BCF9 /* tabbarBk@2x.png in Resources */,
 				699CBF7F1A39B52300DFAE57 /* ThreeViewController.xib in Resources */,
 				699CBF961A39BA9500DFAE57 /* goodsHSeperator@2x.png in Resources */,
+				692EEB241A8DE77800A712C1 /* PageNViewController.xib in Resources */,
 				699CBF861A39B85A00DFAE57 /* Demo1ViewController.xib in Resources */,
 				699CBF951A39BA9500DFAE57 /* goodsHot_d@2x.png in Resources */,
 				699CBF8B1A39B86900DFAE57 /* Demo2ViewController.xib in Resources */,
@@ -308,11 +334,15 @@
 				699CBF3E1A39AD8700DFAE57 /* AppDelegate.m in Sources */,
 				699CBF7C1A39B52300DFAE57 /* OneViewController.m in Sources */,
 				699CBF801A39B52300DFAE57 /* TwoViewController.m in Sources */,
+				692EEB1E1A8DD19E00A712C1 /* DLCustomSlideView.m in Sources */,
 				699CBF851A39B85A00DFAE57 /* Demo1ViewController.m in Sources */,
+				69C4A55C1A8C857A0095B5A5 /* DLScrollTabbarView.m in Sources */,
+				692EEB231A8DE77800A712C1 /* PageNViewController.m in Sources */,
 				69C406051A3C186A0018BCF9 /* DLLRUCache.m in Sources */,
 				699CBF8A1A39B86900DFAE57 /* Demo2ViewController.m in Sources */,
 				699CBF3B1A39AD8700DFAE57 /* main.m in Sources */,
 				699CBF7E1A39B52300DFAE57 /* ThreeViewController.m in Sources */,
+				69C4A55F1A8C8C860095B5A5 /* DLUtility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

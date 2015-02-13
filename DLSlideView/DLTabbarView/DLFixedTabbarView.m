@@ -7,6 +7,7 @@
 //
 
 #import "DLFixedTabbarView.h"
+#import "DLUtility.h"
 
 #define kTrackViewHeight 2
 #define kImageSpacingX 3.0f
@@ -22,18 +23,6 @@
     UIScrollView *scrollView_;
     UIImageView *backgroudView_;
     UIImageView *trackView_;
-}
-- (UIColor *)getColorOfPercent:(CGFloat)percent between:(UIColor *)color1 and:(UIColor *)color2{
-    CGFloat red1, green1, blue1, alpha1;
-    [color1 getRed:&red1 green:&green1 blue:&blue1 alpha:&alpha1];
-    
-    CGFloat red2, green2, blue2, alpha2;
-    [color2 getRed:&red2 green:&green2 blue:&blue2 alpha:&alpha2];
-    
-    CGFloat p1 = percent;
-    CGFloat p2 = 1.0 - percent;
-    UIColor *mid = [UIColor colorWithRed:red1*p1+red2*p2 green:green1*p1+green2*p2 blue:blue1*p1+blue2*p2 alpha:1.0f];
-    return mid;
 }
 
 - (void)commonInit{
@@ -148,7 +137,7 @@
     UILabel *fromLabel = (UILabel *)[scrollView_ viewWithTag:kLabelTagBase+fromIndex];
     UIImageView *fromIamge = (UIImageView *)[scrollView_ viewWithTag:kImageTagBase+fromIndex];
     UIImageView *fromSelectedIamge = (UIImageView *)[scrollView_ viewWithTag:kSelectedImageTagBase+fromIndex];
-    fromLabel.textColor = [self getColorOfPercent:percent between:fromItem.titleColor and:fromItem.selectedTitleColor];
+    fromLabel.textColor = [DLUtility getColorOfPercent:percent between:fromItem.titleColor and:fromItem.selectedTitleColor];
     fromIamge.alpha = percent;
     fromSelectedIamge.alpha = (1-percent);
 
@@ -157,7 +146,7 @@
         UILabel *toLabel = (UILabel *)[scrollView_ viewWithTag:kLabelTagBase+toIndex];
         UIImageView *toIamge = (UIImageView *)[scrollView_ viewWithTag:kImageTagBase+toIndex];
         UIImageView *toSelectedIamge = (UIImageView *)[scrollView_ viewWithTag:kSelectedImageTagBase+toIndex];
-        toLabel.textColor = [self getColorOfPercent:percent between:toItem.selectedTitleColor and:toItem.titleColor];
+        toLabel.textColor = [DLUtility getColorOfPercent:percent between:toItem.selectedTitleColor and:toItem.titleColor];
         toIamge.alpha = (1-percent);
         toSelectedIamge.alpha = percent;
     }

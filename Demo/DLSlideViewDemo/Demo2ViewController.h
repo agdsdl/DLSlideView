@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DLCustomSlideView.h"
 
-@interface Demo2ViewController : UIViewController
+@interface Demo2ViewController : UIViewController<DLCustomSlideViewDelegate>
+@property (weak, nonatomic) IBOutlet DLCustomSlideView *slideView;
 
 @end
