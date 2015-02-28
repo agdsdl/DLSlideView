@@ -10,6 +10,7 @@ DLSlideView对常见的顶部Tab页点击、滑动分页做了封装。
 ![demo-1](./Images/demo1.jpg)
 
 使用方法：
+
 1.初始化DLTabedSlideView
 ``` objective-c
 self.tabedSlideView.baseViewController = self;
@@ -59,7 +60,9 @@ self.tabedSlideView.selectedIndex = 0;
 类似网易新闻，支持无限页面：
 
 ![demo-2](./Images/demo2.jpg)
+
 使用方法：
+
 1.初始化DLCustomSlideView
 ``` objective-c
 DLLRUCache *cache = [[DLLRUCache alloc] initWithCount:6];
