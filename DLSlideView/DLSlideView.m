@@ -58,11 +58,14 @@
 
 - (void)removeOld{
     [self removeCtrl:oldCtrl_];
+    [oldCtrl_ endAppearanceTransition];
     oldCtrl_ = nil;
     oldIndex_ = -1;
 }
 - (void)removeWill{
+    [willCtrl_ beginAppearanceTransition:NO animated:NO];
     [self removeCtrl:willCtrl_];
+    [willCtrl_ endAppearanceTransition];
     willCtrl_ = nil;
     panToIndex_ = -1;
 }
@@ -182,12 +185,14 @@
         //UIViewController *vc = [self.dataSource DLSlideView:self controllerAt:panToIndex_];
         UIViewController *vc = willCtrl_;
         vc.view.frame = CGRectMake(x, self.bounds.origin.y, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
-        if (vc.parentViewController == nil) {
-            
-            [self.baseViewController addChildViewController:vc];
-            [self addSubview:vc.view];
-            [vc didMoveToParentViewController:self.baseViewController];
-        }
+//        if (vc.parentViewController == nil) {
+//            
+//            [self.baseViewController addChildViewController:vc];
+//            [vc willMoveToParentViewController:self.baseViewController];
+//            [vc beginAppearanceTransition:YES animated:YES];
+//            [self addSubview:vc.view];
+//            //[vc didMoveToParentViewController:self.baseViewController];
+//        }
     }
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(DLSlideView:switchingFrom:to:percent:)]) {
@@ -206,7 +211,9 @@
     } completion:^(BOOL finished) {
         if (panToIndex_ >= 0 && panToIndex_ < [self.dataSource numberOfControllersInDLSlideView:self] && panToIndex_ != oldIndex_) {
             //[self removeAt:panToIndex_];
+            [oldCtrl_ beginAppearanceTransition:YES animated:NO];
             [self removeWill];
+            [oldCtrl_ endAppearanceTransition];
         }
         if (self.delegate && [self.delegate respondsToSelector:@selector(DLSlideView:switchCanceled:)]) {
             [self.delegate DLSlideView:self switchCanceled:oldIndex_];
@@ -247,6 +254,8 @@
     
     if (pan.state == UIGestureRecognizerStateBegan) {
         panStartPoint_ = point;
+        //[oldCtrl_ willMoveToParentViewController:nil];
+        [oldCtrl_ beginAppearanceTransition:NO animated:YES];
     }
     else if (pan.state == UIGestureRecognizerStateChanged){
         NSInteger panToIndex = -1;
@@ -269,6 +278,11 @@
                     [self removeWill];
                 }
                 willCtrl_ = [self.dataSource DLSlideView:self controllerAt:panToIndex];
+                [self.baseViewController addChildViewController:willCtrl_];
+                [willCtrl_ willMoveToParentViewController:self.baseViewController];
+                [willCtrl_ beginAppearanceTransition:YES animated:YES];
+                [self addSubview:willCtrl_.view];
+
                 panToIndex_ = panToIndex;
             }
             [self repositionForOffsetX:offsetx];
@@ -289,6 +303,8 @@
                     [self removeOld];
                     
                     if (panToIndex_ >= 0 && panToIndex_ < [self.dataSource numberOfControllersInDLSlideView:self]) {
+                        [willCtrl_ endAppearanceTransition];
+                        [willCtrl_ didMoveToParentViewController:self.baseViewController];
                         oldIndex_ = panToIndex_;
                         oldCtrl_ = willCtrl_;
                         willCtrl_ = nil;
