@@ -187,18 +187,20 @@
             UILabel *toLabel = (UILabel *)[scrollView_ viewWithTag:kLabelTagBase+selectedIndex];
             toLabel.textColor = self.tabItemSelectedColor;
             
-            // 滚动左右两格到可见位置
             UIView *selectedView = [scrollView_ viewWithTag:kViewTagBase+selectedIndex];
             //CGRect selectedRect = selectedView.frame;
             CGRect rc = selectedView.frame;
-            if (selectedIndex > 0) {
-                UIView *leftView = [scrollView_ viewWithTag:kViewTagBase+selectedIndex-1];
-                rc = CGRectUnion(rc, leftView.frame);
-            }
-            if (selectedIndex < [self tabbarCount]-1) {
-                UIView *rightView = [scrollView_ viewWithTag:kViewTagBase+selectedIndex+1];
-                rc = CGRectUnion(rc, rightView.frame);
-            }
+            //选中的居中显示
+            rc = CGRectMake(CGRectGetMidX(rc) - scrollView_.bounds.size.width/2.0f, rc.origin.y, scrollView_.bounds.size.width, rc.size.height);
+// 滚动左右两格到可见位置
+//            if (selectedIndex > 0) {
+//                UIView *leftView = [scrollView_ viewWithTag:kViewTagBase+selectedIndex-1];
+//                rc = CGRectUnion(rc, leftView.frame);
+//            }
+//            if (selectedIndex < [self tabbarCount]-1) {
+//                UIView *rightView = [scrollView_ viewWithTag:kViewTagBase+selectedIndex+1];
+//                rc = CGRectUnion(rc, rightView.frame);
+//            }
             [scrollView_ scrollRectToVisible:rc animated:YES];
             
             // track view
