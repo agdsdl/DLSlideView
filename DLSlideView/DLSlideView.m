@@ -268,15 +268,23 @@
             panToIndex = oldIndex_ + 1;
         }
         
+        // fix bug #5
+        if (panToIndex != panToIndex_) {
+            if (willCtrl_) {
+                [self removeWill];
+            }
+        }
+        
         if (panToIndex < 0 || panToIndex >= [self.dataSource numberOfControllersInDLSlideView:self]) {
             panToIndex_ = panToIndex;
             [self repositionForOffsetX:offsetx/2.0f];
         }
         else{
             if (panToIndex != panToIndex_) {
-                if (willCtrl_) {
-                    [self removeWill];
-                }
+                //fix bug #5
+//                if (willCtrl_) {
+//                    [self removeWill];
+//                }
                 willCtrl_ = [self.dataSource DLSlideView:self controllerAt:panToIndex];
                 [self.baseViewController addChildViewController:willCtrl_];
                 [willCtrl_ willMoveToParentViewController:self.baseViewController];
