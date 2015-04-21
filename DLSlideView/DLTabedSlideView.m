@@ -136,7 +136,7 @@
 }
 
 - (UIViewController *)DLSlideView:(DLSlideView *)sender controllerAt:(NSInteger)index{
-    NSString *key = [NSString stringWithFormat:@"%ld", index];
+    NSString *key = [NSString stringWithFormat:@"%ld", (long)index];
     if ([ctrlCache_ objectForKey:key]) {
         return [ctrlCache_ objectForKey:key];
     }

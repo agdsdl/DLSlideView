@@ -148,7 +148,6 @@
     }
     
     // 计算track view位置和宽度
-    float trackX;
     CGRect fromRc = [scrollView_ convertRect:fromLabel.bounds fromView:fromLabel];
     CGFloat fromWidth = fromLabel.frame.size.width;
     CGFloat fromX = fromRc.origin.x;
