@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "DLSlideView"
-  s.version      = "0.8.1"
+  s.version      = "0.8.2"
   s.summary      = "Tabed slide view based on container of ViewController(not UIScrollView). support infinit pages."
 
   s.description  = <<-DESC
