@@ -106,8 +106,12 @@
 }
 
 - (void)switchingFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex percent:(float)percent{
+    NSLog(@"switchingFromIndex %ld, toIndex:%ld, percent:%f", fromIndex, toIndex, percent);
     UIView<DLSlideBarItemViewProtocol> *fromView = self.barItemViewArray[fromIndex];
-    UIView<DLSlideBarItemViewProtocol> *toView = self.barItemViewArray[toIndex];
+    UIView<DLSlideBarItemViewProtocol> *toView = nil;
+    if (toIndex >= 0 && toIndex < self.barItemViewArray.count) {
+        toView = self.barItemViewArray[toIndex];
+    }
 
     [fromView setSelectionPercent:1-percent];
     [toView setSelectionPercent:percent];
@@ -119,7 +123,7 @@
         UIView<DLSlideBarItemViewProtocol> *deselectedView = self.barItemViewArray[_selectedIndex];
         deselectedView.selected = NO;
     }
-    if (selectedIndex > 0) {
+    if (selectedIndex >= 0) {
         UIView<DLSlideBarItemViewProtocol> *selectedView = self.barItemViewArray[selectedIndex];
         selectedView.selected = YES;
         

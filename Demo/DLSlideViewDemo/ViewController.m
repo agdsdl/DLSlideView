@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "Demo1ViewController.h"
 #import "Demo2ViewController.h"
+#import "Demo3ViewController.h"
 
 @interface ViewController ()
 
@@ -43,6 +44,10 @@
 
 - (IBAction)demo2Taped:(id)sender {
     Demo2ViewController *ctrl = [[Demo2ViewController alloc] init];
+    [self.navigationController pushViewController:ctrl animated:YES];
+}
+- (IBAction)demo3Taped:(id)sender {
+    Demo3ViewController *ctrl = [[Demo3ViewController alloc] init];
     [self.navigationController pushViewController:ctrl animated:YES];
 }
 @end

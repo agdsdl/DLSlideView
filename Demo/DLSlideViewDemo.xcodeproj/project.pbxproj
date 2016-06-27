@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4D199CB21D210422005B1303 /* DLTitleBarItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D199CB11D210422005B1303 /* DLTitleBarItemView.m */; };
+		4D199CB61D211C6F005B1303 /* Demo3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D199CB41D211C6F005B1303 /* Demo3ViewController.m */; };
+		4D199CB71D211C6F005B1303 /* Demo3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D199CB51D211C6F005B1303 /* Demo3ViewController.xib */; };
 		4D2F647E1D1E813900FA1B50 /* DLBottomTrackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2F647D1D1E813900FA1B50 /* DLBottomTrackView.m */; };
 		4D7AFB581D1AC0C00098C4EC /* DLSlideTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7AFB571D1AC0C00098C4EC /* DLSlideTabView.m */; };
 		692EEB1E1A8DD19E00A712C1 /* DLCustomSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 692EEB1D1A8DD19E00A712C1 /* DLCustomSlideView.m */; };
@@ -48,6 +50,9 @@
 /* Begin PBXFileReference section */
 		4D199CB01D210422005B1303 /* DLTitleBarItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLTitleBarItemView.h; sourceTree = "<group>"; };
 		4D199CB11D210422005B1303 /* DLTitleBarItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLTitleBarItemView.m; sourceTree = "<group>"; };
+		4D199CB31D211C6F005B1303 /* Demo3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demo3ViewController.h; sourceTree = "<group>"; };
+		4D199CB41D211C6F005B1303 /* Demo3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo3ViewController.m; sourceTree = "<group>"; };
+		4D199CB51D211C6F005B1303 /* Demo3ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Demo3ViewController.xib; sourceTree = "<group>"; };
 		4D2F647B1D1E80C400FA1B50 /* DLSlideTrackerViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLSlideTrackerViewProtocol.h; sourceTree = "<group>"; };
 		4D2F647C1D1E813900FA1B50 /* DLBottomTrackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLBottomTrackView.h; sourceTree = "<group>"; };
 		4D2F647D1D1E813900FA1B50 /* DLBottomTrackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBottomTrackView.m; sourceTree = "<group>"; };
@@ -155,6 +160,9 @@
 				699CBF871A39B86900DFAE57 /* Demo2ViewController.h */,
 				699CBF881A39B86900DFAE57 /* Demo2ViewController.m */,
 				699CBF891A39B86900DFAE57 /* Demo2ViewController.xib */,
+				4D199CB31D211C6F005B1303 /* Demo3ViewController.h */,
+				4D199CB41D211C6F005B1303 /* Demo3ViewController.m */,
+				4D199CB51D211C6F005B1303 /* Demo3ViewController.xib */,
 				699CBF451A39AD8700DFAE57 /* Images.xcassets */,
 				699CBF731A39B52300DFAE57 /* OneViewController.h */,
 				699CBF741A39B52300DFAE57 /* OneViewController.m */,
@@ -330,6 +338,7 @@
 				692EEB241A8DE77800A712C1 /* PageNViewController.xib in Resources */,
 				699CBF861A39B85A00DFAE57 /* Demo1ViewController.xib in Resources */,
 				699CBF951A39BA9500DFAE57 /* goodsHot_d@2x.png in Resources */,
+				4D199CB71D211C6F005B1303 /* Demo3ViewController.xib in Resources */,
 				699CBF8B1A39B86900DFAE57 /* Demo2ViewController.xib in Resources */,
 				699CBF941A39BA9500DFAE57 /* goodsHot@2x.png in Resources */,
 				699CBF991A39BA9500DFAE57 /* goodsPrice@2x.png in Resources */,
@@ -365,6 +374,7 @@
 				699CBF3B1A39AD8700DFAE57 /* main.m in Sources */,
 				699CBF7E1A39B52300DFAE57 /* ThreeViewController.m in Sources */,
 				69C4A55F1A8C8C860095B5A5 /* DLUtility.m in Sources */,
+				4D199CB61D211C6F005B1303 /* Demo3ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

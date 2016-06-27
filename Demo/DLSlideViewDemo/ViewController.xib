@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
@@ -15,8 +15,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5p-xR-MGK">
-                    <rect key="frame" x="127" y="89" width="71" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5p-xR-MGK">
+                    <rect key="frame" x="137" y="89" width="47" height="30"/>
                     <state key="normal" title="Demo1">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -24,8 +24,8 @@
                         <action selector="demo1Taped:" destination="-1" eventType="touchUpInside" id="yRa-GN-yA0"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qAU-Sl-PeY">
-                    <rect key="frame" x="127" y="169" width="71" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qAU-Sl-PeY">
+                    <rect key="frame" x="135" y="169" width="50" height="30"/>
                     <state key="normal" title="Demo2">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -33,26 +33,51 @@
                         <action selector="demo2Taped:" destination="-1" eventType="touchUpInside" id="yJF-M2-1lN"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="使用DLTabedSlideView" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dym-Vd-sTT">
-                    <rect key="frame" x="92" y="117" width="137" height="16"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用DLTabedSlideView" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dym-Vd-sTT">
+                    <rect key="frame" x="91" y="123" width="138" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="使用DLCustomSlideView定制" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hm2-Ug-Kdo">
-                    <rect key="frame" x="75" y="195" width="174" height="16"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用DLCustomSlideView定制" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hm2-Ug-Kdo">
+                    <rect key="frame" x="73" y="203" width="174" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2U0-JY-uZW">
+                    <rect key="frame" x="135" y="253" width="50" height="30"/>
+                    <state key="normal" title="Demo3">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="demo3Taped:" destination="-1" eventType="touchUpInside" id="2UX-RB-Vgn"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="定制bar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2QH-wh-QaN">
+                    <rect key="frame" x="137" y="287" width="46" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="2QH-wh-QaN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0IW-uW-4Og"/>
+                <constraint firstItem="qAU-Sl-PeY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="L59-ra-8tO"/>
+                <constraint firstItem="Y5p-xR-MGK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="89" id="Niu-5a-F8z"/>
+                <constraint firstItem="hm2-Ug-Kdo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Nsy-gB-qPw"/>
+                <constraint firstItem="2QH-wh-QaN" firstAttribute="top" secondItem="2U0-JY-uZW" secondAttribute="bottom" constant="4" id="ZRr-Ib-qbZ"/>
+                <constraint firstItem="Y5p-xR-MGK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bBG-xy-ZiM"/>
+                <constraint firstItem="Dym-Vd-sTT" firstAttribute="top" secondItem="Y5p-xR-MGK" secondAttribute="bottom" constant="4" id="dGA-ax-35J"/>
+                <constraint firstItem="2U0-JY-uZW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="h4A-N6-r2g"/>
+                <constraint firstItem="qAU-Sl-PeY" firstAttribute="top" secondItem="Dym-Vd-sTT" secondAttribute="bottom" constant="30" id="hka-jQ-Ih5"/>
+                <constraint firstItem="hm2-Ug-Kdo" firstAttribute="top" secondItem="qAU-Sl-PeY" secondAttribute="bottom" constant="4" id="lnx-lb-mEf"/>
+                <constraint firstItem="2U0-JY-uZW" firstAttribute="top" secondItem="hm2-Ug-Kdo" secondAttribute="bottom" constant="34" id="oUg-Gd-aYy"/>
+                <constraint firstItem="2QH-wh-QaN" firstAttribute="top" secondItem="2U0-JY-uZW" secondAttribute="bottom" constant="4" id="tYa-Tk-HEr"/>
+                <constraint firstItem="Dym-Vd-sTT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xmq-IH-R1G"/>
+            </constraints>
             <point key="canvasLocation" x="263" y="439"/>
         </view>
     </objects>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

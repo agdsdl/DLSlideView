@@ -15,6 +15,7 @@
     self.frame = CGRectMake(0, slidebar.scrollView.bounds.size.height - self.bottomPadding - self.bounds.size.height, self.bounds.size.width, self.bounds.size.height);
     [slidebar.scrollView addSubview:self];
     self.basedSlidebarView = slidebar;
+    [slidebar bringSubviewToFront:self];
 }
 
 - (void)selectAtIndex:(NSInteger)index itemView:(UIView<DLSlideBarItemViewProtocol> *)itemView{

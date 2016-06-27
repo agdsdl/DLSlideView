@@ -9,6 +9,9 @@
 #import "DLTitleBarItemView.h"
 #import "DLUtility.h"
 
+@implementation DLTitleBarItemConfiguration
+
+@end
 
 @implementation DLTitleBarItemView
 - (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title configuration:(DLTitleBarItemConfiguration *)config
@@ -34,7 +37,7 @@
 }
 
 - (void)setSelectionPercent:(CGFloat)percent{
-    UIColor *color = [DLUtility getColorOfPercent:percent between:_config.itemNormalColor and:_config.itemSelectedColor];
+    UIColor *color = [DLUtility getColorOfPercent:1-percent between:_config.itemNormalColor and:_config.itemSelectedColor];
     self.titleLabel.textColor = color;
 }
 
