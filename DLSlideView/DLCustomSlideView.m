@@ -85,7 +85,7 @@
 }
 
 - (void)DLSlideView:(DLSlideView *)slide switchingFrom:(NSInteger)oldIndex to:(NSInteger)toIndex percent:(float)percent{
-    [self.tabbar switchingFrom:oldIndex to:toIndex percent:percent];
+    [self.tabbar switchingFromIndex:oldIndex toIndex:toIndex percent:percent];
 }
 - (void)DLSlideView:(DLSlideView *)slide didSwitchTo:(NSInteger)index{
     [self.tabbar setSelectedIndex:index];

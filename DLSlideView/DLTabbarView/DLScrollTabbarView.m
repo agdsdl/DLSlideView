@@ -155,7 +155,7 @@
     return self.tabbarItems.count;
 }
 
-- (void)switchingFrom:(NSInteger)fromIndex to:(NSInteger)toIndex percent:(float)percent{
+- (void)switchingFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex percent:(float)percent{
     //DLScrollTabbarItem *fromItem = [self.tabbarItems objectAtIndex:fromIndex];
     UILabel *fromLabel = (UILabel *)[scrollView_ viewWithTag:kLabelTagBase+fromIndex];
     fromLabel.textColor = [DLUtility getColorOfPercent:percent between:self.tabItemNormalColor and:self.tabItemSelectedColor];
@@ -239,7 +239,7 @@
     NSInteger i = tap.view.tag - kViewTagBase;
     self.selectedIndex = i;
     if (self.delegate) {
-        [self.delegate DLSlideTabbar:self selectAt:i];
+        [self.delegate DLSlideBar:self selectedAt:i];
     }
 }
 

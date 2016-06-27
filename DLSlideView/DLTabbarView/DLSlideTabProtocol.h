@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol DLSlideTabbarDelegate <NSObject>
-- (void)DLSlideTabbar:(id)sender selectAt:(NSInteger)index;
+@protocol DLSlideBarDelegate <NSObject>
+- (void)DLSlideBar:(id)sender selectedAt:(NSInteger)index;
 @end
 
-@protocol DLSlideTabbarProtocol <NSObject>
+@protocol DLSlideBarProtocol <NSObject>
 @property(nonatomic, assign) NSInteger selectedIndex;
 @property(nonatomic, readonly) NSInteger tabbarCount;
-@property(nonatomic, weak) id<DLSlideTabbarDelegate> delegate;
-- (void)switchingFrom:(NSInteger)fromIndex to:(NSInteger)toIndex percent:(float)percent;
+@property(nonatomic, weak) id<DLSlideBarDelegate> delegate;
+- (void)switchingFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex percent:(float)percent;
 
 @end

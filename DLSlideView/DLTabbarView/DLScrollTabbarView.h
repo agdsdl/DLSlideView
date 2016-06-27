@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DLSlideTabbarProtocol.h"
+#import "DLSlideTabProtocol.h"
 
 @interface DLScrollTabbarItem : NSObject
 @property(nonatomic, strong) NSString *title;
@@ -15,7 +15,7 @@
 + (DLScrollTabbarItem *)itemWithTitle:(NSString *)title width:(CGFloat)width;
 @end
 
-@interface DLScrollTabbarView : UIView<DLSlideTabbarProtocol>
+@interface DLScrollTabbarView : UIView<DLSlideBarProtocol>
 @property(nonatomic, strong) UIView *backgroundView;
 
 // tabbar属性
@@ -28,7 +28,7 @@
 // DLSlideTabbarProtocol
 @property(nonatomic, assign) NSInteger selectedIndex;
 @property(nonatomic, readonly) NSInteger tabbarCount;
-@property(nonatomic, weak) id<DLSlideTabbarDelegate> delegate;
-- (void)switchingFrom:(NSInteger)fromIndex to:(NSInteger)toIndex percent:(float)percent;
+@property(nonatomic, weak) id<DLSlideBarDelegate> delegate;
+- (void)switchingFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex percent:(float)percent;
 
 @end

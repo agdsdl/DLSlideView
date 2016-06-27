@@ -132,7 +132,7 @@
     return self.tabbarItems.count;
 }
 
-- (void)switchingFrom:(NSInteger)fromIndex to:(NSInteger)toIndex percent:(float)percent{
+- (void)switchingFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex percent:(float)percent{
     DLFixedTabbarViewTabItem *fromItem = [self.tabbarItems objectAtIndex:fromIndex];
     UILabel *fromLabel = (UILabel *)[scrollView_ viewWithTag:kLabelTagBase+fromIndex];
     UIImageView *fromIamge = (UIImageView *)[scrollView_ viewWithTag:kImageTagBase+fromIndex];
@@ -200,7 +200,7 @@
     NSInteger i = point.x/width;
     self.selectedIndex = i;
     if (self.delegate) {
-        [self.delegate DLSlideTabbar:self selectAt:i];
+        [self.delegate DLSlideBar:self selectedAt:i];
     }
 }
 @end

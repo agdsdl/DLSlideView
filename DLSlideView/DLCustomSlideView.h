@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "DLSlideTabbarProtocol.h"
+#import "DLSlideTabProtocol.h"
 #import "DLSlideView.h"
 #import "DLTabedSlideView.h"
 #import "DLCacheProtocol.h"
@@ -25,12 +25,12 @@
 
 
 
-@interface DLCustomSlideView : UIView<DLSlideTabbarDelegate, DLSlideViewDelegate, DLSlideViewDataSource>
+@interface DLCustomSlideView : UIView<DLSlideBarDelegate, DLSlideViewDelegate, DLSlideViewDataSource>
 @property(nonatomic, weak) UIViewController *baseViewController;
 @property(nonatomic, assign) NSInteger selectedIndex;
 
 // tabbar
-@property(nonatomic, strong) UIView<DLSlideTabbarProtocol> *tabbar;
+@property(nonatomic, strong) UIView<DLSlideBarProtocol> *tabbar;
 @property(nonatomic, assign) float tabbarBottomSpacing;
 
 // cache properties

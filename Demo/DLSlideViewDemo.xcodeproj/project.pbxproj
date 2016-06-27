@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D199CB21D210422005B1303 /* DLTitleBarItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D199CB11D210422005B1303 /* DLTitleBarItemView.m */; };
+		4D2F647E1D1E813900FA1B50 /* DLBottomTrackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2F647D1D1E813900FA1B50 /* DLBottomTrackView.m */; };
+		4D7AFB581D1AC0C00098C4EC /* DLSlideTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7AFB571D1AC0C00098C4EC /* DLSlideTabView.m */; };
 		692EEB1E1A8DD19E00A712C1 /* DLCustomSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 692EEB1D1A8DD19E00A712C1 /* DLCustomSlideView.m */; };
 		692EEB231A8DE77800A712C1 /* PageNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 692EEB211A8DE77800A712C1 /* PageNViewController.m */; };
 		692EEB241A8DE77800A712C1 /* PageNViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 692EEB221A8DE77800A712C1 /* PageNViewController.xib */; };
@@ -43,6 +46,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D199CB01D210422005B1303 /* DLTitleBarItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLTitleBarItemView.h; sourceTree = "<group>"; };
+		4D199CB11D210422005B1303 /* DLTitleBarItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLTitleBarItemView.m; sourceTree = "<group>"; };
+		4D2F647B1D1E80C400FA1B50 /* DLSlideTrackerViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLSlideTrackerViewProtocol.h; sourceTree = "<group>"; };
+		4D2F647C1D1E813900FA1B50 /* DLBottomTrackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLBottomTrackView.h; sourceTree = "<group>"; };
+		4D2F647D1D1E813900FA1B50 /* DLBottomTrackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBottomTrackView.m; sourceTree = "<group>"; };
+		4D2F647F1D1E82B100FA1B50 /* DLSlideBarItemViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLSlideBarItemViewProtocol.h; sourceTree = "<group>"; };
+		4D7AFB561D1AC0C00098C4EC /* DLSlideBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSlideBarView.h; sourceTree = "<group>"; };
+		4D7AFB571D1AC0C00098C4EC /* DLSlideTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSlideTabView.m; sourceTree = "<group>"; };
 		692EEB1C1A8DD19E00A712C1 /* DLCustomSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCustomSlideView.h; sourceTree = "<group>"; };
 		692EEB1D1A8DD19E00A712C1 /* DLCustomSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCustomSlideView.m; sourceTree = "<group>"; };
 		692EEB1F1A8DD5B900A712C1 /* DLCacheProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLCacheProtocol.h; sourceTree = "<group>"; };
@@ -62,7 +73,7 @@
 		699CBF641A39B06800DFAE57 /* DLSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSlideView.m; sourceTree = "<group>"; };
 		699CBF661A39B06800DFAE57 /* DLFixedTabbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFixedTabbarView.h; sourceTree = "<group>"; };
 		699CBF671A39B06800DFAE57 /* DLFixedTabbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFixedTabbarView.m; sourceTree = "<group>"; };
-		699CBF681A39B06800DFAE57 /* DLSlideTabbarProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSlideTabbarProtocol.h; sourceTree = "<group>"; };
+		699CBF681A39B06800DFAE57 /* DLSlideTabProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSlideTabProtocol.h; sourceTree = "<group>"; };
 		699CBF691A39B06800DFAE57 /* DLTabedSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLTabedSlideView.h; sourceTree = "<group>"; };
 		699CBF6A1A39B06800DFAE57 /* DLTabedSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLTabedSlideView.m; sourceTree = "<group>"; };
 		699CBF6E1A39B0B100DFAE57 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -209,11 +220,19 @@
 		699CBF651A39B06800DFAE57 /* DLTabbarView */ = {
 			isa = PBXGroup;
 			children = (
-				699CBF681A39B06800DFAE57 /* DLSlideTabbarProtocol.h */,
+				699CBF681A39B06800DFAE57 /* DLSlideTabProtocol.h */,
 				699CBF661A39B06800DFAE57 /* DLFixedTabbarView.h */,
 				699CBF671A39B06800DFAE57 /* DLFixedTabbarView.m */,
 				69C4A55A1A8C857A0095B5A5 /* DLScrollTabbarView.h */,
 				69C4A55B1A8C857A0095B5A5 /* DLScrollTabbarView.m */,
+				4D7AFB561D1AC0C00098C4EC /* DLSlideBarView.h */,
+				4D7AFB571D1AC0C00098C4EC /* DLSlideTabView.m */,
+				4D2F647B1D1E80C400FA1B50 /* DLSlideTrackerViewProtocol.h */,
+				4D2F647C1D1E813900FA1B50 /* DLBottomTrackView.h */,
+				4D2F647D1D1E813900FA1B50 /* DLBottomTrackView.m */,
+				4D2F647F1D1E82B100FA1B50 /* DLSlideBarItemViewProtocol.h */,
+				4D199CB01D210422005B1303 /* DLTitleBarItemView.h */,
+				4D199CB11D210422005B1303 /* DLTitleBarItemView.m */,
 			);
 			path = DLTabbarView;
 			sourceTree = "<group>";
@@ -332,9 +351,12 @@
 				699CBF6C1A39B06800DFAE57 /* DLFixedTabbarView.m in Sources */,
 				699CBF6D1A39B06800DFAE57 /* DLTabedSlideView.m in Sources */,
 				699CBF3E1A39AD8700DFAE57 /* AppDelegate.m in Sources */,
+				4D7AFB581D1AC0C00098C4EC /* DLSlideTabView.m in Sources */,
 				699CBF7C1A39B52300DFAE57 /* OneViewController.m in Sources */,
 				699CBF801A39B52300DFAE57 /* TwoViewController.m in Sources */,
+				4D199CB21D210422005B1303 /* DLTitleBarItemView.m in Sources */,
 				692EEB1E1A8DD19E00A712C1 /* DLCustomSlideView.m in Sources */,
+				4D2F647E1D1E813900FA1B50 /* DLBottomTrackView.m in Sources */,
 				699CBF851A39B85A00DFAE57 /* Demo1ViewController.m in Sources */,
 				69C4A55C1A8C857A0095B5A5 /* DLScrollTabbarView.m in Sources */,
 				692EEB231A8DE77800A712C1 /* PageNViewController.m in Sources */,

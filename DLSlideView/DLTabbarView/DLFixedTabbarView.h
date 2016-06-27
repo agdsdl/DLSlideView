@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DLSlideTabbarProtocol.h"
+#import "DLSlideTabProtocol.h"
 
 @interface DLFixedTabbarViewTabItem : NSObject
 @property(nonatomic, strong) NSString *title;
@@ -17,7 +17,7 @@
 @property(nonatomic, strong) UIColor *selectedTitleColor;
 @end
 
-@interface DLFixedTabbarView : UIView<DLSlideTabbarProtocol>
+@interface DLFixedTabbarView : UIView<DLSlideBarProtocol>
 @property(nonatomic, strong) UIImage *backgroundImage;
 @property(nonatomic, strong) UIColor *trackColor;
 @property(nonatomic, strong) NSArray *tabbarItems;
@@ -25,7 +25,7 @@
 
 @property(nonatomic, assign) NSInteger selectedIndex;
 @property(nonatomic, readonly) NSInteger tabbarCount;
-@property(nonatomic, weak) id<DLSlideTabbarDelegate> delegate;
-- (void)switchingFrom:(NSInteger)fromIndex to:(NSInteger)toIndex percent:(float)percent;
+@property(nonatomic, weak) id<DLSlideBarDelegate> delegate;
+- (void)switchingFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex percent:(float)percent;
 
 @end

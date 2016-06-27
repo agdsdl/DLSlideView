@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DLSlideTabbarProtocol.h"
+#import "DLSlideTabProtocol.h"
 
 @interface DLTabedbarItem : NSObject
 @property (nonatomic, strong) NSString *title;
@@ -26,7 +26,7 @@
 - (void)DLTabedSlideView:(DLTabedSlideView *)sender didSelectedAt:(NSInteger)index;
 @end
 
-@interface DLTabedSlideView : UIView<DLSlideTabbarDelegate>
+@interface DLTabedSlideView : UIView<DLSlideBarDelegate>
 //@property(nonatomic, strong) NSArray *viewControllers;
 @property(nonatomic, weak) UIViewController *baseViewController;
 @property(nonatomic, assign) NSInteger selectedIndex;
