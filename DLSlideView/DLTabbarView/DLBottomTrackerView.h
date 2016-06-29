@@ -1,5 +1,5 @@
 //
-//  DLBottomTrackView.h
+//  DLBottomTrackerView.h
 //  DLSlideViewDemo
 //
 //  Created by 苏东乐 on 16/6/25.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "DLSlideTrackerViewProtocol.h"
 
-@interface DLBottomTrackView : UIView <DLSlideTrackerViewProtocol>
+@interface DLBottomTrackerView : UIView <DLSlideTrackerViewProtocol>
 @property(nonatomic, assign) CGFloat bottomPadding;
 @property(nonatomic, assign) CGFloat leftPadding;
 @property(nonatomic, assign) CGFloat rightPadding;

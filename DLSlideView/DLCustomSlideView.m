@@ -39,7 +39,7 @@
     slideView_ = [[DLSlideView alloc] initWithFrame:CGRectMake(0, self.tabbar.frame.size.height+self.tabbarBottomSpacing, self.bounds.size.width, self.bounds.size.height-self.tabbar.frame.size.height-self.tabbarBottomSpacing)];
     slideView_.delegate = self;
     slideView_.dataSource = self;
-    slideView_.baseViewController = self.baseViewController;
+    slideView_.basedViewController = self.baseViewController;
     [self addSubview:slideView_];
 }
 - (void)layoutSubviews{
@@ -54,7 +54,7 @@
 }
 
 - (void)setBaseViewController:(UIViewController *)baseViewController{
-    slideView_.baseViewController = baseViewController;
+    slideView_.basedViewController = baseViewController;
     _baseViewController = baseViewController;
 }
 

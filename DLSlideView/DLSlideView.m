@@ -75,10 +75,10 @@
         [self removeOld];
         
         UIViewController *vc = [self.dataSource DLSlideView:self controllerAt:index];
-        [self.baseViewController addChildViewController:vc];
+        [self.basedViewController addChildViewController:vc];
         vc.view.frame = self.bounds;
         [self addSubview:vc.view];
-        [vc didMoveToParentViewController:self.baseViewController];
+        [vc didMoveToParentViewController:self.basedViewController];
         oldIndex_ = index;
         oldCtrl_ = vc;
         
@@ -115,14 +115,14 @@
         return;
     }
 
-    if (oldCtrl_ != nil && oldCtrl_.parentViewController == self.baseViewController) {
+    if (oldCtrl_ != nil && oldCtrl_.parentViewController == self.basedViewController) {
         isSwitching_ = YES;
         //UIViewController *oldvc = [self.dataSource DLSlideView:self controllerAt:oldIndex_];;
         UIViewController *oldvc = oldCtrl_;
         UIViewController *newvc = [self.dataSource DLSlideView:self controllerAt:index];
         
         [oldvc willMoveToParentViewController:nil];
-        [self.baseViewController addChildViewController:newvc];
+        [self.basedViewController addChildViewController:newvc];
         
         CGRect nowRect = oldvc.view.frame;
         CGRect leftRect = CGRectMake(nowRect.origin.x-nowRect.size.width, nowRect.origin.y, nowRect.size.width, nowRect.size.height);
@@ -140,14 +140,14 @@
         }
         
         newvc.view.frame = newStartRect;
-        [newvc willMoveToParentViewController:self.baseViewController];
+        [newvc willMoveToParentViewController:self.basedViewController];
         
-        [self.baseViewController transitionFromViewController:oldvc toViewController:newvc duration:0.4 options:0 animations:^{
+        [self.basedViewController transitionFromViewController:oldvc toViewController:newvc duration:0.4 options:0 animations:^{
             newvc.view.frame = nowRect;
             oldvc.view.frame = oldEndRect;
         } completion:^(BOOL finished) {
             [oldvc removeFromParentViewController];
-            [newvc didMoveToParentViewController:self.baseViewController];
+            [newvc didMoveToParentViewController:self.basedViewController];
             
             if (self.delegate && [self.delegate respondsToSelector:@selector(DLSlideView:didSwitchTo:)]) {
                 [self.delegate DLSlideView:self didSwitchTo:index];
@@ -286,8 +286,8 @@
 //                    [self removeWill];
 //                }
                 willCtrl_ = [self.dataSource DLSlideView:self controllerAt:panToIndex];
-                [self.baseViewController addChildViewController:willCtrl_];
-                [willCtrl_ willMoveToParentViewController:self.baseViewController];
+                [self.basedViewController addChildViewController:willCtrl_];
+                [willCtrl_ willMoveToParentViewController:self.basedViewController];
                 [willCtrl_ beginAppearanceTransition:YES animated:YES];
                 [self addSubview:willCtrl_.view];
 
@@ -312,7 +312,7 @@
                     
                     if (panToIndex_ >= 0 && panToIndex_ < [self.dataSource numberOfControllersInDLSlideView:self]) {
                         [willCtrl_ endAppearanceTransition];
-                        [willCtrl_ didMoveToParentViewController:self.baseViewController];
+                        [willCtrl_ didMoveToParentViewController:self.basedViewController];
                         oldIndex_ = panToIndex_;
                         oldCtrl_ = willCtrl_;
                         willCtrl_ = nil;

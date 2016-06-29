@@ -25,7 +25,7 @@
 @interface DLSlideView : UIView
 //@property(nonatomic, strong) NSArray *viewControllers;
 @property(nonatomic, assign) NSInteger selectedIndex;
-@property(nonatomic, weak) UIViewController *baseViewController;
+@property(nonatomic, weak) UIViewController *basedViewController;
 @property(nonatomic, weak) id<DLSlideViewDelegate>delegate;
 @property(nonatomic, weak) id<DLSlideViewDataSource>dataSource;
 - (void)switchTo:(NSInteger)index;

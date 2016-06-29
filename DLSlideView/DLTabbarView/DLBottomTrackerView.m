@@ -7,10 +7,10 @@
 //
 
 #import "DLSlideBarView.h"
-#import "DLBottomTrackView.h"
+#import "DLBottomTrackerView.h"
 #import "DLSlideBarItemViewProtocol.h"
 
-@implementation DLBottomTrackView
+@implementation DLBottomTrackerView
 - (void)addToSlideBar:(DLSlideBarView *)slidebar{
     self.frame = CGRectMake(0, slidebar.scrollView.bounds.size.height - self.bottomPadding - self.bounds.size.height, self.bounds.size.width, self.bounds.size.height);
     [slidebar.scrollView addSubview:self];

@@ -86,7 +86,7 @@
 //}
 
 - (void)setBaseViewController:(UIViewController *)baseViewController{
-    slideView_.baseViewController = baseViewController;
+    slideView_.basedViewController = baseViewController;
 }
 
 - (void)buildTabbar{

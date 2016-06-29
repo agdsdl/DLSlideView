@@ -10,7 +10,7 @@
 #import "DLSlideView.h"
 #import "DLSlideBarView.h"
 #import "DLTitleBarItemView.h"
-#import "DLBottomTrackView.h"
+#import "DLBottomTrackerView.h"
 #import "PageNViewController.h"
 
 @interface Demo3ViewController ()<DLSlideBarDelegate, DLSlideViewDelegate, DLSlideViewDataSource>
@@ -26,7 +26,7 @@
     // Do any additional setup after loading the view from its nib.
     self.slideView.delegate = self;
     self.slideView.dataSource = self;
-    self.slideView.baseViewController = self;
+    self.slideView.basedViewController = self;
     
     self.slideBarView.delegate = self;
 
@@ -41,7 +41,7 @@
     }
     self.slideBarView.barItemViewArray = itemArray;
     
-    DLBottomTrackView *tracker = [[DLBottomTrackView alloc] initWithFrame:CGRectMake(0, 0, 10, 2)];
+    DLBottomTrackerView *tracker = [[DLBottomTrackerView alloc] initWithFrame:CGRectMake(0, 0, 10, 2)];
     tracker.bottomPadding = 2;
     tracker.backgroundColor = [UIColor redColor];
     self.slideBarView.trackerView = tracker;
