@@ -27,6 +27,7 @@
         [label sizeToFit];
         
         label.frame = CGRectMake((self.bounds.size.width-label.bounds.size.width)/2.0f, (self.bounds.size.height-label.bounds.size.height)/2.0f, CGRectGetWidth(label.bounds), CGRectGetHeight(label.bounds));
+        label.autoresizingMask = UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin;
         [self addSubview:label];
         _titleLabel = label;
         _config = config;
