@@ -19,10 +19,10 @@
 @property(nonatomic, strong) UIView *backgroundView;
 
 // tabbar属性
-@property (nonatomic, strong) UIColor *tabItemNormalColor;
-@property (nonatomic, strong) UIColor *tabItemSelectedColor;
+@property (nonatomic, strong) UIColor *tabItemNormalColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) UIColor *tabItemSelectedColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic, assign) CGFloat tabItemNormalFontSize;
-@property(nonatomic, strong) UIColor *trackColor;
+@property(nonatomic, strong) UIColor *trackColor UI_APPEARANCE_SELECTOR;
 @property(nonatomic, strong) NSArray *tabbarItems;
 
 // DLSlideTabbarProtocol

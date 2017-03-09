@@ -67,7 +67,27 @@
     }
 }
 
+- (void)setTabItemNormalColor:(UIColor *)tabItemNormalColor{
+    _tabItemNormalColor = tabItemNormalColor;
+    
+    for (int i=0; i<[self tabbarCount]; i++) {
+        if (i == self.selectedIndex) {
+            continue;
+        }
+        UILabel *label = (UILabel *)[scrollView_ viewWithTag:kLabelTagBase+i];
+        label.textColor = tabItemNormalColor;
+    }
+}
+
+- (void)setTabItemSelectedColor:(UIColor *)tabItemSelectedColor{
+    _tabItemSelectedColor = tabItemSelectedColor;
+    
+    UILabel *label = (UILabel *)[scrollView_ viewWithTag:kLabelTagBase+self.selectedIndex];
+    label.textColor = tabItemSelectedColor;
+}
+
 - (void)setTrackColor:(UIColor *)trackColor{
+    _trackColor = trackColor;
     trackView_.backgroundColor = trackColor;
 }
 
