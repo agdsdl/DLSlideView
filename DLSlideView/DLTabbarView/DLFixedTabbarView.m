@@ -110,7 +110,7 @@
     [self layoutTabbar];
 }
 
-- (void)layoutTabbar{
+- (void)layoutTabbar {
     float width = self.bounds.size.width/self.tabbarItems.count;
     float height = self.bounds.size.height;
     float x = 0.0f;
@@ -125,7 +125,7 @@
     }
     
     float trackX = width*self.selectedIndex;
-    trackView_.frame = CGRectMake(trackX, trackView_.frame.origin.y, width, kTrackViewHeight);
+    trackView_.frame = CGRectMake(trackX, self.bounds.size.height-kTrackViewHeight-1, width, kTrackViewHeight);
 }
 
 - (NSInteger)tabbarCount{
