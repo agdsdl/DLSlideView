@@ -52,7 +52,7 @@
     }
 }
 
-- (UIView *)trackOnView{
+- (UIView *)trackToView{
     return self.titleLabel;
 }
 @end

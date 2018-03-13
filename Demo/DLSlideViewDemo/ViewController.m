@@ -7,9 +7,10 @@
 //
 
 #import "ViewController.h"
-#import "Demo1ViewController.h"
-#import "Demo2ViewController.h"
+//#import "Demo1ViewController.h"
+//#import "Demo2ViewController.h"
 #import "Demo3ViewController.h"
+#import "Demo4ViewController.h"
 
 @interface ViewController ()
 
@@ -37,17 +38,22 @@
     // Pass the selected object to the new view controller.
 }
 */
-- (IBAction)demo1Taped:(id)sender {
-    Demo1ViewController *ctrl = [[Demo1ViewController alloc] init];
-    [self.navigationController pushViewController:ctrl animated:YES];
-}
-
-- (IBAction)demo2Taped:(id)sender {
-    Demo2ViewController *ctrl = [[Demo2ViewController alloc] init];
-    [self.navigationController pushViewController:ctrl animated:YES];
-}
+//- (IBAction)demo1Taped:(id)sender {
+//    Demo1ViewController *ctrl = [[Demo1ViewController alloc] init];
+//    [self.navigationController pushViewController:ctrl animated:YES];
+//}
+//
+//- (IBAction)demo2Taped:(id)sender {
+//    Demo2ViewController *ctrl = [[Demo2ViewController alloc] init];
+//    [self.navigationController pushViewController:ctrl animated:YES];
+//}
 - (IBAction)demo3Taped:(id)sender {
     Demo3ViewController *ctrl = [[Demo3ViewController alloc] init];
     [self.navigationController pushViewController:ctrl animated:YES];
+}
+- (IBAction)demo4Taped:(id)sender {
+    Demo4ViewController *ctrl = [[Demo4ViewController alloc] init];
+    [self.navigationController pushViewController:ctrl animated:YES];
+
 }
 @end

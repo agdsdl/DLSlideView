@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
@@ -12,70 +16,52 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5p-xR-MGK">
-                    <rect key="frame" x="137" y="89" width="47" height="30"/>
-                    <state key="normal" title="Demo1">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="demo1Taped:" destination="-1" eventType="touchUpInside" id="yRa-GN-yA0"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qAU-Sl-PeY">
-                    <rect key="frame" x="135" y="169" width="50" height="30"/>
-                    <state key="normal" title="Demo2">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="demo2Taped:" destination="-1" eventType="touchUpInside" id="yJF-M2-1lN"/>
-                    </connections>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用DLTabedSlideView" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dym-Vd-sTT">
-                    <rect key="frame" x="91" y="123" width="138" height="16"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用DLCustomSlideView定制" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hm2-Ug-Kdo">
-                    <rect key="frame" x="73" y="203" width="174" height="16"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2U0-JY-uZW">
-                    <rect key="frame" x="135" y="253" width="50" height="30"/>
+                    <rect key="frame" x="162.5" y="253" width="50" height="30"/>
                     <state key="normal" title="Demo3">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="demo3Taped:" destination="-1" eventType="touchUpInside" id="2UX-RB-Vgn"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="定制bar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2QH-wh-QaN">
-                    <rect key="frame" x="137" y="287" width="46" height="16"/>
+                    <rect key="frame" x="164.5" y="287" width="46" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="0.3333333432674408" green="0.3333333432674408" blue="0.3333333432674408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Zv-rD-qZa">
+                    <rect key="frame" x="162" y="334" width="50" height="30"/>
+                    <state key="normal" title="Demo4">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="demo4Taped:" destination="-1" eventType="touchUpInside" id="tGL-sO-dYq"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="导航栏bar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O25-kz-PbR">
+                    <rect key="frame" x="157.5" y="368" width="60" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.33333334329999997" green="0.33333334329999997" blue="0.33333334329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="2QH-wh-QaN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0IW-uW-4Og"/>
-                <constraint firstItem="qAU-Sl-PeY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="L59-ra-8tO"/>
-                <constraint firstItem="Y5p-xR-MGK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="89" id="Niu-5a-F8z"/>
-                <constraint firstItem="hm2-Ug-Kdo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Nsy-gB-qPw"/>
+                <constraint firstItem="O25-kz-PbR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2PW-5Z-Nl0"/>
+                <constraint firstItem="6Zv-rD-qZa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="42h-gd-CmZ"/>
+                <constraint firstItem="6Zv-rD-qZa" firstAttribute="top" secondItem="2QH-wh-QaN" secondAttribute="bottom" constant="31" id="CFX-ZB-O42"/>
+                <constraint firstItem="2U0-JY-uZW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="253" id="Ume-zE-jrK"/>
+                <constraint firstItem="O25-kz-PbR" firstAttribute="top" secondItem="6Zv-rD-qZa" secondAttribute="bottom" constant="4" id="W5F-5F-rOo"/>
                 <constraint firstItem="2QH-wh-QaN" firstAttribute="top" secondItem="2U0-JY-uZW" secondAttribute="bottom" constant="4" id="ZRr-Ib-qbZ"/>
-                <constraint firstItem="Y5p-xR-MGK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bBG-xy-ZiM"/>
-                <constraint firstItem="Dym-Vd-sTT" firstAttribute="top" secondItem="Y5p-xR-MGK" secondAttribute="bottom" constant="4" id="dGA-ax-35J"/>
                 <constraint firstItem="2U0-JY-uZW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="h4A-N6-r2g"/>
-                <constraint firstItem="qAU-Sl-PeY" firstAttribute="top" secondItem="Dym-Vd-sTT" secondAttribute="bottom" constant="30" id="hka-jQ-Ih5"/>
-                <constraint firstItem="hm2-Ug-Kdo" firstAttribute="top" secondItem="qAU-Sl-PeY" secondAttribute="bottom" constant="4" id="lnx-lb-mEf"/>
-                <constraint firstItem="2U0-JY-uZW" firstAttribute="top" secondItem="hm2-Ug-Kdo" secondAttribute="bottom" constant="34" id="oUg-Gd-aYy"/>
+                <constraint firstItem="O25-kz-PbR" firstAttribute="top" secondItem="6Zv-rD-qZa" secondAttribute="bottom" constant="4" id="ihb-zf-bZt"/>
                 <constraint firstItem="2QH-wh-QaN" firstAttribute="top" secondItem="2U0-JY-uZW" secondAttribute="bottom" constant="4" id="tYa-Tk-HEr"/>
-                <constraint firstItem="Dym-Vd-sTT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xmq-IH-R1G"/>
             </constraints>
             <point key="canvasLocation" x="263" y="439"/>
         </view>

@@ -200,7 +200,7 @@
     NSInteger i = point.x/width;
     self.selectedIndex = i;
     if (self.delegate) {
-        [self.delegate DLSlideBar:self selectedAt:i];
+        [self.delegate DLTabbar:self selectedAt:i];
     }
 }
 @end

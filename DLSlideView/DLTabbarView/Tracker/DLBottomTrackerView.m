@@ -6,19 +6,19 @@
 //  Copyright © 2016年 dongle. All rights reserved.
 //
 
-#import "DLSlideBarView.h"
+#import "DLTabbarView.h"
 #import "DLBottomTrackerView.h"
-#import "DLSlideBarItemViewProtocol.h"
+#import "DLTabbarItemViewProtocol.h"
 
 @implementation DLBottomTrackerView
-- (void)addToSlideBar:(DLSlideBarView *)slidebar{
+- (void)addToSlideBar:(DLTabbarView *)slidebar{
     self.frame = CGRectMake(0, slidebar.scrollView.bounds.size.height - self.bottomPadding - self.bounds.size.height, self.bounds.size.width, self.bounds.size.height);
     [slidebar.scrollView addSubview:self];
     self.basedSlidebarView = slidebar;
     [slidebar bringSubviewToFront:self];
 }
 
-- (void)selectAtIndex:(NSInteger)index itemView:(UIView<DLSlideBarItemViewProtocol> *)itemView{
+- (void)selectAtIndex:(NSInteger)index itemView:(UIView<DLTabbarItemViewProtocol> *)itemView{
     CGRect rc = itemView.frame;
     //选中的居中显示
     rc = CGRectMake(CGRectGetMidX(rc) - self.basedSlidebarView.scrollView.bounds.size.width/2.0f, rc.origin.y, self.basedSlidebarView.scrollView.bounds.size.width, rc.size.height);
@@ -34,20 +34,20 @@
     [self.basedSlidebarView.scrollView scrollRectToVisible:rc animated:YES];
     
     // track view
-    CGRect trackRc = [self.basedSlidebarView.scrollView convertRect:itemView.trackOnView.bounds fromView:itemView.trackOnView];
+    CGRect trackRc = [self.basedSlidebarView.scrollView convertRect:itemView.trackToView.bounds fromView:itemView.trackToView];
     self.frame = CGRectMake(trackRc.origin.x + self.leftPadding , self.frame.origin.y, trackRc.size.width - self.leftPadding-self.rightPadding, CGRectGetHeight(self.bounds));
 }
 
-- (void)switchingFromIndex:(NSInteger)fromIndex itemView:(UIView<DLSlideBarItemViewProtocol> *)fromView toIndex:(NSInteger)toIndex itemView:(UIView<DLSlideBarItemViewProtocol> *)toView percent:(float)percent{
+- (void)switchingFromIndex:(NSInteger)fromIndex itemView:(UIView<DLTabbarItemViewProtocol> *)fromView toIndex:(NSInteger)toIndex itemView:(UIView<DLTabbarItemViewProtocol> *)toView percent:(float)percent{
 
     // 计算track view位置和宽度
-    CGRect fromRc = [self.basedSlidebarView.scrollView convertRect:fromView.trackOnView.bounds fromView:fromView.trackOnView];
-    CGFloat fromWidth = fromView.trackOnView.frame.size.width - self.leftPadding - self.rightPadding;
+    CGRect fromRc = [self.basedSlidebarView.scrollView convertRect:fromView.trackToView.bounds fromView:fromView.trackToView];
+    CGFloat fromWidth = fromView.trackToView.frame.size.width - self.leftPadding - self.rightPadding;
     CGFloat fromX = fromRc.origin.x + self.leftPadding;
     CGFloat toX;
     CGFloat toWidth;
     if (toView) {
-        CGRect toRc = [self.basedSlidebarView.scrollView convertRect:toView.trackOnView.bounds fromView:toView.trackOnView];
+        CGRect toRc = [self.basedSlidebarView.scrollView convertRect:toView.trackToView.bounds fromView:toView.trackToView];
         toWidth = toRc.size.width - self.leftPadding - self.rightPadding;
         toX = toRc.origin.x + self.leftPadding;
     }

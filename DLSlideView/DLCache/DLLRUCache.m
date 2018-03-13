@@ -17,14 +17,16 @@
 - (id)initWithCount:(NSInteger)count{
     if (self = [super init]) {
         capacity_ = count;
-        dic_ = [NSMutableDictionary dictionaryWithCapacity:capacity_];
-        lruKeyList_ = [NSMutableArray arrayWithCapacity:capacity_];
+        dic_ = [NSMutableDictionary dictionary];
+        lruKeyList_ = [NSMutableArray array];
     }
 
     return self;
 }
 
-- (void)setObject:(id)object forKey:(NSString *)key{
+- (NSArray *)setObject:(id)object forKey:(NSString *)key{
+    id oldOne;
+    NSString *oldKey;
     if (![lruKeyList_ containsObject:key]) {
         if (lruKeyList_.count < capacity_) {
             [dic_ setValue:object forKey:key];
@@ -32,6 +34,8 @@
         }
         else{
             NSString *longTimeUnusedKey = [lruKeyList_ firstObject];
+            oldOne = [dic_ objectForKey:longTimeUnusedKey];
+            oldKey = longTimeUnusedKey;
             [dic_ setValue:nil forKey:longTimeUnusedKey];
             [lruKeyList_ removeObjectAtIndex:0];
             
@@ -44,6 +48,7 @@
         [lruKeyList_ removeObject:key];
         [lruKeyList_ addObject:key];
     }
+    return oldOne?@[oldKey,oldOne]:nil;
 }
 
 - (id)objectForKey:(NSString *)key{

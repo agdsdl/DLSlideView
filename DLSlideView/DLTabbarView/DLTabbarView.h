@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DLSlideTabProtocol.h"
-#import "DLSlideBarItemViewProtocol.h"
-#import "DLSlideTrackerViewProtocol.h"
+#import "DLTabbarProtocol.h"
+#import "DLTabbarItemViewProtocol.h"
+#import "DLTabbarTrackerViewProtocol.h"
 
 //@protocol DLTabbarViewDelegate
 //- (void)DLTabbarView:(id)sender switchingFrom:(NSInteger)fromIndex view:(UIView *)fromView to:(NSInteger)toIndex view:(UIView *)toView percent:(float)percent;
@@ -20,9 +20,9 @@
 //@property(nonatomic, readonly) NSInteger tabbarCount;
 //@end
 
-@interface DLSlideBarView : UIView <DLSlideBarProtocol>
-@property(nonatomic, strong) NSArray<UIView<DLSlideBarItemViewProtocol> *> *barItemViewArray;
-@property(nonatomic, strong) UIView<DLSlideTrackerViewProtocol>* trackerView;
+@interface DLTabbarView : UIView <DLTabbarProtocol>
+@property(nonatomic, strong) NSArray<UIView<DLTabbarItemViewProtocol> *> *barItemViewArray;
+@property(nonatomic, strong) UIView<DLTabbarTrackerViewProtocol>* trackerView;
 
 @property(nonatomic, assign) UIEdgeInsets insets;
 @property(nonatomic, assign) CGFloat itemSpaceX;
@@ -35,7 +35,7 @@
 // DLSlideTabbarProtocol
 @property(nonatomic, assign) NSInteger selectedIndex;
 @property(nonatomic, readonly) NSInteger tabbarCount;
-@property(nonatomic, weak) id<DLSlideBarDelegate> delegate;
+@property(nonatomic, weak) id<DLTabbarDelegate> delegate;
 
 - (void)switchingFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex percent:(float)percent;
 

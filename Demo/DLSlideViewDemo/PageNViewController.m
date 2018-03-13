@@ -13,6 +13,13 @@
 @end
 
 @implementation PageNViewController
+- (id)DLCacheData{
+    return @{@"bgColor":self.view.backgroundColor, @"title":self.pageLabel.text};
+}
+- (void)setDLCacheData:(id)cacheData{
+    self.view.backgroundColor = [cacheData objectForKey:@"bgColor"];
+    self.pageLabel.text = [cacheData objectForKey:@"title"];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

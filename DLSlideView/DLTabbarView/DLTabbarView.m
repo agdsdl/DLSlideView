@@ -6,13 +6,13 @@
 //  Copyright © 2016年 dongle. All rights reserved.
 //
 
-#import "DLSlideBarView.h"
+#import "DLTabbarView.h"
 
-@interface DLSlideBarView()<UIScrollViewDelegate>
+@interface DLTabbarView()<UIScrollViewDelegate>
 @end
 
 
-@implementation DLSlideBarView
+@implementation DLTabbarView
 {
     UIImageView *trackView_;
     NSMutableArray *barItemArray_;
@@ -83,7 +83,7 @@
     float height = self.bounds.size.height-self.insets.top-self.insets.bottom;
     float x = self.insets.left;
     for (NSInteger i=0; i<self.barItemViewArray.count; i++) {
-        UIView<DLSlideBarItemViewProtocol> *itemView = self.barItemViewArray[i];
+        UIView<DLTabbarItemViewProtocol> *itemView = self.barItemViewArray[i];
         CGFloat width = itemView.bounds.size.width;
         itemView.frame = CGRectMake(x, self.insets.top, width, height);
         [_scrollView addSubview:itemView];
@@ -108,8 +108,8 @@
 
 - (void)switchingFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex percent:(float)percent{
     NSLog(@"switchingFromIndex %ld, toIndex:%ld, percent:%f", fromIndex, toIndex, percent);
-    UIView<DLSlideBarItemViewProtocol> *fromView = self.barItemViewArray[fromIndex];
-    UIView<DLSlideBarItemViewProtocol> *toView = nil;
+    UIView<DLTabbarItemViewProtocol> *fromView = self.barItemViewArray[fromIndex];
+    UIView<DLTabbarItemViewProtocol> *toView = nil;
     if (toIndex >= 0 && toIndex < self.barItemViewArray.count) {
         toView = self.barItemViewArray[toIndex];
     }
@@ -121,11 +121,11 @@
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex{
     if (_selectedIndex >= 0) {
-        UIView<DLSlideBarItemViewProtocol> *deselectedView = self.barItemViewArray[_selectedIndex];
+        UIView<DLTabbarItemViewProtocol> *deselectedView = self.barItemViewArray[_selectedIndex];
         deselectedView.selected = NO;
     }
     if (selectedIndex >= 0) {
-        UIView<DLSlideBarItemViewProtocol> *selectedView = self.barItemViewArray[selectedIndex];
+        UIView<DLTabbarItemViewProtocol> *selectedView = self.barItemViewArray[selectedIndex];
         selectedView.selected = YES;
         
         //选中的居中显示
@@ -145,7 +145,7 @@
     NSInteger index = -1;
     CGPoint pt = [tap locationInView:_scrollView];
     for (NSInteger i=0; i<self.barItemViewArray.count; i++) {
-        UIView<DLSlideBarItemViewProtocol> *itemView = self.barItemViewArray[i];
+        UIView<DLTabbarItemViewProtocol> *itemView = self.barItemViewArray[i];
         if (CGRectContainsPoint(itemView.frame, pt)) {
             index = i;
             break;
@@ -155,7 +155,7 @@
     if (index >= 0) {
         self.selectedIndex = index;
         if (self.delegate) {
-            [self.delegate DLSlideBar:self selectedAt:index];
+            [self.delegate DLTabbar:self selectedAt:index];
         }
     }
 }

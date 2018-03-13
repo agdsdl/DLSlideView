@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Demo3ViewController">
@@ -14,21 +18,32 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dWN-4K-MHg" customClass="DLSlideBarView">
-                    <rect key="frame" x="0.0" y="45" width="320" height="57"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ioc-qY-lSn" customClass="DLSlideView">
+                    <rect key="frame" x="0.0" y="45" width="375" height="622"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ioc-qY-lSn" customClass="DLSlideView">
-                    <rect key="frame" x="0.0" y="110" width="320" height="458"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dWN-4K-MHg" customClass="DLTabbarView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="O6t-ly-bmS"/>
+                    </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <point key="canvasLocation" x="273" y="334"/>
+            <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+            <constraints>
+                <constraint firstItem="Ioc-qY-lSn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5P1-Gy-cvw"/>
+                <constraint firstItem="dWN-4K-MHg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="B4c-G2-Elb"/>
+                <constraint firstAttribute="trailing" secondItem="Ioc-qY-lSn" secondAttribute="trailing" id="Hap-9a-8N2"/>
+                <constraint firstItem="Ioc-qY-lSn" firstAttribute="top" secondItem="dWN-4K-MHg" secondAttribute="bottom" constant="5" id="P35-Pu-vOa"/>
+                <constraint firstItem="dWN-4K-MHg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="b4g-Tx-zZ3"/>
+                <constraint firstAttribute="trailing" secondItem="dWN-4K-MHg" secondAttribute="trailing" id="kcd-J0-P6i"/>
+                <constraint firstAttribute="bottom" secondItem="Ioc-qY-lSn" secondAttribute="bottom" id="v90-W6-GYZ"/>
+            </constraints>
+            <point key="canvasLocation" x="272.5" y="333.5"/>
         </view>
     </objects>
 </document>

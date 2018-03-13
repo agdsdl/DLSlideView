@@ -60,6 +60,7 @@
     }
     return self;
 }
+
 - (id)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         [self commonInit];
@@ -77,7 +78,7 @@
     UIView *barView = (UIView *)tabbar_;
     barView.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), self.tabbarHeight);
     slideView_.frame = CGRectMake(0, self.tabbarHeight+self.tabbarBottomSpacing, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)-self.tabbarHeight-self.tabbarBottomSpacing);
-
+    
 }
 //- (void)setViewControllers:(NSArray *)viewControllers{
 //    //assert(self.tabarView == nil || viewControllers.count == [self.tabarView tabbarCount]);
@@ -105,16 +106,16 @@
     tabbar_.tabbarItems = tabbarItems;
     tabbar_.trackColor = self.tabbarTrackColor;
     tabbar_.backgroundImage = self.tabbarBackgroundImage;
-
+    
 }
 //- (void)setTabarView:(id<DLSlideTabbarProtocol>)tabarView{
 //    assert([tabarView isKindOfClass:[UIView class]]);
 //    assert(slideView_.viewControllers == nil || slideView_.viewControllers.count == [tabarView tabbarCount]);
-//    
+//
 //    if (_tabarView != tabarView) {
 //        _tabarView.delegate = nil;
 //        _tabarView = tabarView;
-//        
+//
 //        tabarView.delegate = self;
 //        [self layoutBarAndSlide];
 //
@@ -127,7 +128,7 @@
     [tabbar_ setSelectedIndex:selectedIndex];
 }
 
-- (void)DLSlideTabbar:(id)sender selectAt:(NSInteger)index{
+- (void)DLTabbar:(id)sender selectedAt:(NSInteger)index {
     [slideView_ setSelectedIndex:index];
 }
 
@@ -159,6 +160,5 @@
 - (void)DLSlideView:(DLSlideView *)slide switchCanceled:(NSInteger)oldIndex{
     [tabbar_ setSelectedIndex:oldIndex];
 }
-
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DLSlideBarItemViewProtocol.h"
+#import "DLTabbarItemViewProtocol.h"
 
 @interface DLTitleBarItemConfiguration : NSObject
 @property (nonatomic, strong) UIColor *itemNormalColor;
@@ -16,7 +16,7 @@
 @property (nonatomic, assign) CGFloat *itemSelectedFontScale;
 @end
 
-@interface DLTitleBarItemView : UIView <DLSlideBarItemViewProtocol>
+@interface DLTitleBarItemView : UIView <DLTabbarItemViewProtocol>
 @property(nonatomic, strong) NSString *title;
 @property(nonatomic, assign) CGFloat width;
 @property(nonatomic, strong) DLTitleBarItemConfiguration *config;
@@ -24,7 +24,7 @@
 
 @property(nonatomic, strong) UILabel *titleLabel;
 
-//DLSlideBarItemViewProtocol
+//DLTabbarItemViewProtocol
 - (void)setSelectionPercent:(CGFloat)percent;
 @property(nonatomic, assign) BOOL selected;
 

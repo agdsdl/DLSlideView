@@ -15,4 +15,10 @@
 - (id)objectForKey:(NSString *)key;
 @end
 
+@protocol DLTwoLevelCacheProtocol <DLCacheProtocol>
+- (void)setObject:(id)object forKey:(NSString *)key;
+- (id)objectForKey:(NSString *)key;
+- (id)dataForKey:(NSString *)key;
+@end
+
 #endif

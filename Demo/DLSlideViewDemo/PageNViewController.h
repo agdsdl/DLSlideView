@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DLTwoLevelCache.h"
 
-@interface PageNViewController : UIViewController
+@interface PageNViewController : UIViewController<DLDataCachable>
 
 @property (weak, nonatomic) IBOutlet UILabel *pageLabel;
+
+- (id)DLCacheData;
+- (void)setDLCacheData:(id)cacheData;
+
 @end

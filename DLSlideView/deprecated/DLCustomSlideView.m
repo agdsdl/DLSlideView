@@ -64,7 +64,7 @@
     [self.tabbar setSelectedIndex:selectedIndex];
 }
 
-- (void)DLSlideTabbar:(id)sender selectAt:(NSInteger)index{
+- (void)DLTabbar:(id)sender selectedAt:(NSInteger)index {
     [slideView_ setSelectedIndex:index];
 }
 
